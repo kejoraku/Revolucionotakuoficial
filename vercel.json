@@ -1,12 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite",
-  "installCommand": "npm install --force --legacy-peer-deps --unsafe-perm",
-  "devCommand": "npm run dev",
-  "functions": {
-    "src/**/*.jsx": {
-      "runtime": "nodejs18.x"
-    }
-  }
+  "framework": "vite"
 }
