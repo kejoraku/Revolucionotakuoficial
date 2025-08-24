@@ -1,7 +1,7 @@
 {
-  "buildCommand": "npm run build:vercel",
+  "buildCommand": "bash vercel-build.sh",
   "outputDirectory": "dist",
   "framework": "vite",
-  "installCommand": "npm install --force --legacy-peer-deps",
+  "installCommand": "npm install --force --legacy-peer-deps --unsafe-perm",
   "devCommand": "npm run dev"
 }
