@@ -97,8 +97,12 @@ const Torneos = () => {
                   <button
                     className="tournament-button"
                     onClick={() => {
-                      const baseUrl = 'https://www.instagram.com/direct/t/17845492661911069';
-                      window.open(baseUrl, '_blank');
+                      const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                      if (isMobile) {
+                        window.open('https://www.instagram.com/revolucionotakuoficial/', '_blank');
+                      } else {
+                        window.open('https://www.instagram.com/direct/t/17845492661911069', '_blank');
+                      }
                     }}
                   >
                     {tournament.status === 'Inscripciones Abiertas' ? 'Inscribirse' : 'Más Información'}
