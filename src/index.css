@@ -238,24 +238,3 @@ body {
   right: 5%;
   animation-delay: 5s;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #181824;
-    --color-bg-secondary: #23263a;
-    --color-text: #f3f3f3;
-    --color-accent: #54BCD5;
-    --color-navbar: rgba(24, 24, 36, 0.95);
-    --color-navbar-blur: rgba(24, 24, 36, 0.98);
-  }
-  body {
-    background: var(--color-bg);
-    color: var(--color-text);
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--color-bg);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--color-accent);
-  }
-}
