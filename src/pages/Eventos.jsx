@@ -1,11 +1,11 @@
 import React from 'react'
 import Carousel from '../components/Carousel'
 import './Eventos.css'
-import convencion_anime_2025 from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/eventos/convencion_anime_2025.jpg';
-import gaming_tournament from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/eventos/gaming_tournament.jpg';
-import manga_reading_club from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/eventos/manga_reading_club.jpg';
-import anime_movie_night from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/eventos/anime_movie_night.jpg';
-import cosplay_workshop from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/eventos/cosplay_workshop.jpg';
+import convencion_anime_2025 from '../../contenido/eventos/convencion_anime_2025.jpg';
+import gaming_tournament from '../../contenido/eventos/gaming_tournament.jpg';
+import manga_reading_club from '../../contenido/eventos/manga_reading_club.jpg';
+import anime_movie_night from '../../contenido/eventos/anime_movie_night.jpg';
+import cosplay_workshop from '../../contenido/eventos/cosplay_workshop.jpg';
 
 
 

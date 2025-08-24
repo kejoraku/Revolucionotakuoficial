@@ -2,14 +2,14 @@ import React from 'react'
 import Carousel from '../components/Carousel'
 import './Home.css'
 
-import nuevas_temporadas from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/nuevas_temporadas.jpg';
-import manga_exclusivo from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/mangas.jpg';
-import gaming_news from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/gaming_news.jpeg';
-import bienvenida from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/inicio/bienvenida.jpg';
-import lanzamientos from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/inicio/ultimos_lanzamientos.jpg';
-import comunidad from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/inicio/comunidad.jpg';
-import gaming_anime from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/inicio/gaming_anime.jpg';
-import eventos_especiales from 'C:/Users/Rani/Desktop/Cursor/Prueba para pagina web/contenido/inicio/eventos_especiales.jpg';
+import nuevas_temporadas from '../../contenido/nuevas_temporadas.jpg';
+import manga_exclusivo from '../../contenido/mangas.jpg';
+import gaming_news from '../../contenido/gaming_news.jpeg';
+import bienvenida from '../../contenido/inicio/bienvenida.jpg';
+import lanzamientos from '../../contenido/inicio/ultimos_lanzamientos.jpg';
+import comunidad from '../../contenido/inicio/comunidad.jpg';
+import gaming_anime from '../../contenido/inicio/gaming_anime.jpg';
+import eventos_especiales from '../../contenido/inicio/eventos_especiales.jpg';
 
 const Home = () => {
   const homeImages = [
