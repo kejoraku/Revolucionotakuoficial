@@ -130,15 +130,26 @@ Modifica la prop `autoPlayInterval` en los componentes Carousel:
 
 ## 🚀 Despliegue
 
+### Vercel (Recomendado)
+1. Conecta tu repositorio de GitHub a Vercel
+2. Vercel detectará automáticamente que es un proyecto Vite
+3. Configuración automática:
+   - **Framework**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+4. El deployment se realizará automáticamente
+
 ### Netlify
 1. Conecta tu repositorio a Netlify
 2. Configura el comando de build: `npm run build`
 3. Directorio de publicación: `dist`
 
-### Vercel
-1. Conecta tu repositorio a Vercel
-2. El framework se detectará automáticamente
-3. Despliega con un clic
+### Solución de Problemas en Vercel
+Si encuentras el error "Command 'npm run build' exited with 126":
+1. Asegúrate de que el archivo `vercel.json` esté presente
+2. Verifica que las dependencias estén actualizadas
+3. Revisa que el Node.js version sea compatible (recomendado: 18.x o superior)
 
 ## 🤝 Contribución
 
