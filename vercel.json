@@ -1,7 +1,12 @@
 {
-  "buildCommand": "bash vercel-build.sh",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
   "installCommand": "npm install --force --legacy-peer-deps --unsafe-perm",
-  "devCommand": "npm run dev"
+  "devCommand": "npm run dev",
+  "functions": {
+    "src/**/*.jsx": {
+      "runtime": "nodejs18.x"
+    }
+  }
 }
