@@ -75,7 +75,7 @@ const Home = () => {
               <div className="card-content">
                 <h3>Nuevas Temporadas</h3>
                 <p>Descubre las últimas temporadas de tus series favoritas</p>
-                <button className="card-button">Ver Más</button>
+                <button className="card-button" onClick={() => window.open('https://www.crunchyroll.com/videos/new', '_blank')}>Ver Más</button>
               </div>
             </div>
 
@@ -87,7 +87,7 @@ const Home = () => {
               <div className="card-content">
                 <h3>Manga Exclusivo</h3>
                 <p>Lee los últimos capítulos de los mangas más populares</p>
-                <button className="card-button">Leer Ahora</button>
+                <button className="card-button" onClick={() => window.open('https://inmanga.com/', '_blank')}>Leer Ahora</button>
               </div>
             </div>
 
@@ -99,7 +99,7 @@ const Home = () => {
               <div className="card-content">
                 <h3>Gaming News</h3>
                 <p>Las últimas noticias del mundo de los videojuegos</p>
-                <button className="card-button">Explorar</button>
+                <button className="card-button" onClick={() => window.open('https://www.levelup.com/noticias/', '_blank')}>Explorar</button>
               </div>
             </div>
           </div>
