@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 1, 0.95);
+    background: var(--color-navbar);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(3, 0, 2, 0.3);
     z-index: 1000;
@@ -40,6 +40,7 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     position: relative;
+    color: var(--color-text);
   }
   
   .logo-subtitle {
@@ -55,12 +56,14 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: cyberpunkGlow 2s ease-in-out infinite alternate;
+    color: var(--color-text);
   }
   
   .navbar-menu {
     display: flex;
     align-items: center;
     gap: 2rem;
+    background: var(--color-navbar-blur);
   }
   
   .nav-link {
@@ -75,6 +78,7 @@
     position: relative;
     letter-spacing: 1px;
     text-transform: uppercase;
+    color: var(--color-text);
   }
   
   .nav-link:hover {
@@ -105,29 +109,29 @@
   .navbar-toggle {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 1001;
   }
-  
-  .hamburger {
-    width: 25px;
-    height: 3px;
-    background: #030002;
-    margin: 3px 0;
-    transition: 0.3s;
+  .hamburger-line {
+    width: 28px;
+    height: 3.5px;
+    background: var(--color-text);
+    margin: 4px 0;
     border-radius: 2px;
+    transition: all 0.3s cubic-bezier(.4,2,.3,1);
+    display: block;
   }
-  
-  .hamburger.active:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
+  .hamburger-line.active:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
   }
-  
-  .hamburger.active:nth-child(2) {
+  .hamburger-line.active:nth-child(2) {
     opacity: 0;
   }
-  
-  .hamburger.active:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
+  .hamburger-line.active:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
   }
   
   /* Responsive design */
@@ -168,10 +172,6 @@
   
     .navbar-toggle {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 1001;
     }
   
     .logo-text {

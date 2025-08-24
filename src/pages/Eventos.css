@@ -1,12 +1,13 @@
 .eventos-page {
   min-height: 100vh;
   padding-top: 80px;
-  background: #FFFF01;
+  background: var(--color-bg);
+  color: var(--color-text);
   position: relative;
 }
 
 .hero-section {
-  background: #FFFF01;
+  background: var(--color-bg);
   padding: 3rem 0;
   position: relative;
   overflow: hidden;
@@ -39,7 +40,7 @@
 
 .content-section {
   padding: 3rem 0;
-  background: linear-gradient(135deg, #FFFF01, #FFE135, #FFFF01);
+  background: linear-gradient(135deg, var(--color-bg), var(--color-bg-secondary), var(--color-bg));
   background-size: 300% 300%;
   animation: gradientShift 15s ease infinite;
   position: relative;

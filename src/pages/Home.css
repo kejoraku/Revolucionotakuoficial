@@ -2,10 +2,12 @@
   min-height: 100vh;
   padding-top: 80px;
   position: relative;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 .hero-section {
-  background: #FFFF01;
+  background: var(--color-bg);
   padding: 3rem 0;
   position: relative;
   overflow: hidden;
@@ -37,7 +39,7 @@
 
 .content-section {
   padding: 3rem 0;
-  background: linear-gradient(135deg, #FFFF01, #FFE135);
+  background: linear-gradient(135deg, var(--color-bg), var(--color-bg-secondary));
   background-size: 200% 200%;
   animation: gradientShift 12s ease infinite;
   position: relative;
