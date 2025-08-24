@@ -94,7 +94,13 @@ const Torneos = () => {
                     </div>
                   </div>
                   <p className="tournament-description">{tournament.description}</p>
-                  <button className="tournament-button">
+                  <button
+                    className="tournament-button"
+                    onClick={() => {
+                      const baseUrl = 'https://www.instagram.com/direct/t/17845492661911069';
+                      window.open(baseUrl, '_blank');
+                    }}
+                  >
                     {tournament.status === 'Inscripciones Abiertas' ? 'Inscribirse' : 'Más Información'}
                   </button>
                 </div>

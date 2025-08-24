@@ -115,7 +115,11 @@ const Eventos = () => {
                   <h3 className="event-title">{event.title}</h3>
                   <p className="event-location">{event.location}</p>
                   <p className="event-description">{event.description}</p>
-                  <button className="event-button">Más Información</button>
+                  <button className="event-button" onClick={() => {
+                    if (event.title === 'Convención Anime 2025') {
+                      window.open('https://animeconar.com/', '_blank');
+                    }
+                  }}>Más Información</button>
                 </div>
               </div>
             ))}
