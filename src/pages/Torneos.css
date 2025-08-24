@@ -1,0 +1,429 @@
+.torneos-page {
+  min-height: 100vh;
+  padding-top: 80px;
+  background: #FFFF01;
+  position: relative;
+}
+
+.hero-section {
+  background: #FFFF01;
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="diamonds" width="25" height="25" patternUnits="userSpaceOnUse"><polygon points="12.5,0 25,12.5 12.5,25 0,12.5" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/></pattern><pattern id="stars" width="30" height="30" patternUnits="userSpaceOnUse"><polygon points="15,0 18,12 30,12 20,20 25,32 15,25 5,32 10,20 0,12 12,12" fill="rgba(84,188,213,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23diamonds)"/><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+  opacity: 0.4;
+  animation: rotate 90s linear infinite;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 25% 75%, rgba(0, 0, 0, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 75% 25%, rgba(84, 188, 213, 0.15) 0%, transparent 50%);
+  animation: pulse 5s ease-in-out infinite;
+}
+
+.content-section {
+  padding: 3rem 0;
+  background: #FFFF01;
+  /*background:linear-gradient(135deg, #FFFF01, #FFE135, #FFFF01, #FFD700);*/
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hexagons2" width="30" height="30" patternUnits="userSpaceOnUse"><polygon points="15,0 30,8.66 30,21.65 15,30 0,21.65 0,8.66" fill="none" stroke="rgba(84,188,213,0.15)" stroke-width="0.5"/></pattern><pattern id="dots3" width="35" height="35" patternUnits="userSpaceOnUse"><circle cx="17.5" cy="17.5" r="1.5" fill="rgba(3,0,2,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23hexagons2)"/><rect width="100" height="100" fill="url(%23dots3)"/></svg>');
+  opacity: 0.3;
+  animation: rotate 120s linear infinite reverse;
+}
+
+.tournaments-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #030002;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #030002, #54BCD5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 15px rgba(84, 188, 213, 0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #54BCD5, transparent);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.tournaments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tournament-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(3, 0, 2, 0.2);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(3, 0, 2, 0.1);
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.tournament-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #030002, #54BCD5, #030002);
+  background-size: 200% 100%;
+  animation: gradientShift 5s ease infinite;
+}
+
+.tournament-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(3, 0, 2, 0.3), 0 0 20px rgba(84, 188, 213, 0.2);
+}
+
+.tournament-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.tournament-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.tournament-card:hover .tournament-image img {
+  transform: scale(1.05);
+}
+
+.tournament-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(84, 188, 213, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.status-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.status-badge:hover::before {
+  left: 100%;
+}
+
+.status-badge.open {
+  background: rgba(3, 0, 2, 0.9);
+  color: #ffffff;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.status-badge.coming {
+  background: rgba(84, 188, 213, 0.9);
+  color: #ffffff;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.tournament-content {
+  padding: 1.5rem;
+}
+
+.tournament-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #030002;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.tournament-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #54BCD5;
+  transition: width 0.3s ease;
+}
+
+.tournament-card:hover .tournament-title::after {
+  width: 100%;
+}
+
+.tournament-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  position: relative;
+}
+
+.info-item::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #54BCD5;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tournament-card:hover .info-item::before {
+  opacity: 1;
+}
+
+.info-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  color: #54BCD5;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.info-value {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  color: #030002;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.info-value.prize {
+  color: #e74c3c;
+  font-weight: 800;
+  text-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.tournament-description {
+  font-family: 'Rajdhani', sans-serif;
+  color: #54BCD5;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.tournament-button {
+  background: linear-gradient(135deg, #030002, #54BCD5);
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.tournament-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.tournament-button:hover::before {
+  left: 100%;
+}
+
+.tournament-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(84, 188, 213, 0.3);
+}
+
+/* Floating elements for Torneos page */
+.torneos-floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.torneos-floating-element {
+  position: absolute;
+  background: rgba(84, 188, 213, 0.1);
+  border: 1px solid rgba(84, 188, 213, 0.3);
+  border-radius: 50%;
+  animation: float 10s ease-in-out infinite;
+}
+
+.torneos-floating-element:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  top: 15%;
+  left: 8%;
+  animation-delay: 0s;
+}
+
+.torneos-floating-element:nth-child(2) {
+  width: 50px;
+  height: 50px;
+  top: 30%;
+  right: 12%;
+  animation-delay: 4s;
+}
+
+.torneos-floating-element:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  bottom: 25%;
+  left: 12%;
+  animation-delay: 8s;
+}
+
+.torneos-floating-element:nth-child(4) {
+  width: 40px;
+  height: 40px;
+  bottom: 15%;
+  right: 8%;
+  animation-delay: 2s;
+}
+
+.torneos-floating-element:nth-child(5) {
+  width: 60px;
+  height: 60px;
+  top: 55%;
+  left: 5%;
+  animation-delay: 6s;
+}
+
+.torneos-floating-element:nth-child(6) {
+  width: 45px;
+  height: 45px;
+  top: 40%;
+  right: 5%;
+  animation-delay: 3s;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 0;
+  }
+
+  .content-section {
+    padding: 2rem 0;
+  }
+
+  .tournaments-content {
+    padding: 0 1rem;
+  }
+
+  .tournaments-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .tournament-content {
+    padding: 1rem;
+  }
+
+  .tournament-info {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}

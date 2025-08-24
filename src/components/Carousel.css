@@ -1,0 +1,224 @@
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.carousel-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #030002;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: linear-gradient(135deg, #030002, #54BCD5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 15px rgba(84, 188, 213, 0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(3, 0, 2, 0.3);
+}
+
+.carousel-slides {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease-in-out;
+  display: flex;
+  align-items: flex-end;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.slide-content {
+  background: linear-gradient(transparent, rgba(3, 0, 2, 0.9));
+  color: #ffffff;
+  padding: 2.5rem;
+  width: 100%;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.slide-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(84, 188, 213, 0.9);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.slide-description {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(3, 0, 2, 0.8);
+  border: none;
+  color: #ffffff;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(84, 188, 213, 0.3);
+}
+
+.carousel-button:hover {
+  background: rgba(84, 188, 213, 0.9);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 20px rgba(84, 188, 213, 0.8);
+  border-color: rgba(84, 188, 213, 0.8);
+}
+
+.carousel-button.prev {
+  left: 20px;
+}
+
+.carousel-button.next {
+  right: 20px;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 50;
+  padding: 0.5rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(3, 0, 2, 0.3);
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 50;
+  min-width: 12px;
+  min-height: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+.indicator.active {
+  background: #030002;
+  border-color: #54BCD5;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(84, 188, 213, 0.8);
+}
+
+.indicator:hover {
+  background: rgba(84, 188, 213, 0.6);
+  border-color: #54BCD5;
+  box-shadow: 0 0 8px rgba(84, 188, 213, 0.5);
+  transform: scale(1.1);
+}
+
+.indicator:focus {
+  outline: 2px solid #54BCD5;
+  outline-offset: 2px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .carousel-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .carousel-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .carousel {
+    height: 350px;
+    border-radius: 12px;
+  }
+
+  .slide-content {
+    padding: 1.5rem;
+  }
+
+  .slide-title {
+    font-size: 1.6rem;
+  }
+
+  .slide-description {
+    font-size: 1rem;
+  }
+
+  .carousel-button {
+    width: 45px;
+    height: 45px;
+  }
+
+  .carousel-button.prev {
+    left: 10px;
+  }
+
+  .carousel-button.next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    height: 280px;
+  }
+
+  .slide-content {
+    padding: 1rem;
+  }
+
+  .slide-title {
+    font-size: 1.4rem;
+  }
+
+  .slide-description {
+    font-size: 0.9rem;
+  }
+}

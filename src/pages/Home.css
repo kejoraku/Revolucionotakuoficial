@@ -1,0 +1,288 @@
+.home-page {
+  min-height: 100vh;
+  padding-top: 80px;
+  position: relative;
+}
+
+.hero-section {
+  background: #FFFF01;
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="0.5"/></pattern><pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1" fill="rgba(84,188,213,0.3)"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+  opacity: 0.4;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(84, 188, 213, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(84, 188, 213, 0.1) 0%, transparent 50%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.content-section {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #FFFF01, #FFE135);
+  background-size: 200% 200%;
+  animation: gradientShift 12s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hexagons" width="25" height="25" patternUnits="userSpaceOnUse"><polygon points="12.5,0 25,7.5 25,17.5 12.5,25 0,17.5 0,7.5" fill="none" stroke="rgba(84,188,213,0.2)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23hexagons)"/></svg>');
+  opacity: 0.3;
+  animation: rotate 60s linear infinite;
+}
+
+.content-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #030002;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #030002, #54BCD5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 15px rgba(84, 188, 213, 0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #54BCD5, transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.content-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(3, 0, 2, 0.2);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(3, 0, 2, 0.1);
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.content-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #030002, #54BCD5, #030002);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.content-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(3, 0, 2, 0.3), 0 0 20px rgba(84, 188, 213, 0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.content-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 1.5rem;
+  background: linear-gradient(transparent, rgba(3, 0, 2, 0.9));
+  color: #ffffff;
+  position: relative;
+}
+
+.card-content h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(84, 188, 213, 0.9);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.card-content h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: #54BCD5;
+  transition: width 0.3s ease;
+}
+
+.content-card:hover .card-content h3::after {
+  width: 50px;
+}
+
+.card-content p {
+  font-family: 'Rajdhani', sans-serif;
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.card-button {
+  background: linear-gradient(135deg, #030002, #54BCD5);
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.card-button:hover::before {
+  left: 100%;
+}
+
+.card-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(84, 188, 213, 0.3);
+}
+
+/* Floating elements for Home page */
+.home-floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-floating-element {
+  position: absolute;
+  background: rgba(84, 188, 213, 0.1);
+  border: 1px solid rgba(84, 188, 213, 0.3);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.home-floating-element:nth-child(1) {
+  width: 60px;
+  height: 60px;
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.home-floating-element:nth-child(2) {
+  width: 40px;
+  height: 40px;
+  top: 25%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.home-floating-element:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  bottom: 25%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.home-floating-element:nth-child(4) {
+  width: 30px;
+  height: 30px;
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 1s;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 0;
+  }
+
+  .content-section {
+    padding: 2rem 0;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
