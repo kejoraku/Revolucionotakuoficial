@@ -90,7 +90,7 @@ const Home = () => {
           <img src={comunidad} alt="Grupo de Anime" />
         </div>
         <div className="slide-review-text">
-          <h3>Grupo de Anime Revolución Otaku</h3>
+          <h3>Revolución Otaku Oficial</h3>
           <p>Únete a nuestro grupo de anime donde compartimos noticias, recomendaciones, memes y organizamos eventos para todos los fans. ¡Vive la pasión otaku con nosotros y haz nuevos amigos que comparten tu afición!</p>
         </div>
       </div>
