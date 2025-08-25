@@ -1,17 +1,21 @@
-.torneos-page {
+.torneos-page.dynamic-bg {
   min-height: 100vh;
-  padding-top: 80px;
-  background: var(--color-bg);
-  color: var(--color-text);
+  padding-top: 0;
   position: relative;
+  background: linear-gradient(135deg, #FFFF01 0%, #FFF9C4 100%);
+  color: var(--color-text);
+  overflow: hidden;
 }
 
-.hero-section {
-  background: var(--color-bg);
-  padding: 3rem 0;
+.hero-section,
+.content-section {
+  background: none;
   position: relative;
-  overflow: hidden;
   transition: all 0.3s ease;
+  box-shadow: none;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 2rem;
 }
 
 .hero-section::before {
@@ -36,16 +40,6 @@
   background: radial-gradient(circle at 25% 75%, rgba(0, 0, 0, 0.15) 0%, transparent 50%),
               radial-gradient(circle at 75% 25%, rgba(84, 188, 213, 0.15) 0%, transparent 50%);
   animation: pulse 5s ease-in-out infinite;
-}
-
-.content-section {
-  padding: 3rem 0;
-  background: linear-gradient(135deg, var(--color-bg), var(--color-bg-secondary), var(--color-bg));
-  /*background:linear-gradient(135deg, #FFFF01, #FFE135, #FFFF01, #FFD700);*/
-  background-size: 400% 400%;
-  animation: gradientShift 20s ease infinite;
-  position: relative;
-  overflow: hidden;
 }
 
 .content-section::before {
@@ -108,8 +102,9 @@
 }
 
 .tournament-card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
+  background: none;
+  box-shadow: none;
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(3, 0, 2, 0.2);
   transition: all 0.3s ease;
@@ -334,7 +329,7 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  height: 100vh;
   pointer-events: none;
   z-index: 0;
 }

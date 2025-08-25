@@ -1,33 +1,45 @@
 import React from 'react'
 import Carousel from '../components/Carousel'
 import './Torneos.css'
+import torneos_espacio_publicitario_1 from '../../contenido/torneos/torneos_espacio_publicitario_1.png';
+import torneos_espacio_publicitario_2 from '../../contenido/torneos/torneos_espacio_publicitario_2.jpg';
 
 const Torneos = () => {
   const tournamentImages = [
-    { 
-      url: 'https://www.egames.news/__export/1684616059726/sites/debate/img/2023/05/20/mortal_kombat_1_pc.jpg_172596871.jpg', 
-      title: 'Mortal Kombat 1 Championship', 
-      description: 'El torneo más sangriento del año con premios de $30,000' 
+    {
+      url: 'https://www.egames.news/__export/1684616059726/sites/debate/img/2023/05/20/mortal_kombat_1_pc.jpg_172596871.jpg',
+      title: 'Mortal Kombat 1 Championship',
+      description: 'El torneo más sangriento del año con premios de $30,000'
     },
-    { 
-      url: 'https://phantom-marca.unidadeditorial.es/d08f4af1ed60b2ee65b70c61080a613d/resize/660/f/webp/assets/multimedia/imagenes/2024/09/17/17265788212503.jpg', 
-      title: 'FIFA 2025 Tournament', 
-      description: 'Compite en nuestro torneo de FIFA con equipos profesionales' 
+    {
+      url: 'https://phantom-marca.unidadeditorial.es/d08f4af1ed60b2ee65b70c61080a613d/resize/660/f/webp/assets/multimedia/imagenes/2024/09/17/17265788212503.jpg',
+      title: 'FIFA 2025 Tournament',
+      description: 'Compite en nuestro torneo de FIFA con equipos profesionales'
     },
-    { 
-      url: 'https://powerwave83.com/wp-content/uploads/2024/04/t8-title.jpg', 
-      title: 'Tekken 8 Championship', 
-      description: 'Torneo de Tekken 8 con los mejores jugadores de lucha' 
+    {
+      url: torneos_espacio_publicitario_1,
+      title: 'Espacio Publicitario',
+      description: '¡Participa en los torneos y gana premios exclusivos!'
     },
-    { 
-      url: 'https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_1100/ncom/software/switch-2/70010000095203/12d36a4c9bbf43a4babba2f203e1e271ef08de143349e08231dff56fd2bef70e', 
-      title: 'Street Fighter 6 Cup', 
-      description: 'Torneo de Street Fighter 6 para todos los niveles' 
+    {
+      url: 'https://powerwave83.com/wp-content/uploads/2024/04/t8-title.jpg',
+      title: 'Tekken 8 Championship',
+      description: 'Torneo de Tekken 8 con los mejores jugadores de lucha'
     },
-    { 
-      url: 'https://f.rpp-noticias.io/2022/02/24/kof15_1222266.jpg', 
-      title: 'The King of Fighters XV', 
-      description: 'Festival de The King of Fighters XV con cosplay y premios' 
+    {
+      url: 'https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_1100/ncom/software/switch-2/70010000095203/12d36a4c9bbf43a4babba2f203e1e271ef08de143349e08231dff56fd2bef70e',
+      title: 'Street Fighter 6 Cup',
+      description: 'Torneo de Street Fighter 6 para todos los niveles'
+    },
+    {
+      url: torneos_espacio_publicitario_2,
+      title: 'Espacio Publicitario 2',
+      description: '¡No te pierdas los anuncios y novedades de los torneos!'
+    },
+    {
+      url: 'https://f.rpp-noticias.io/2022/02/24/kof15_1222266.jpg',
+      title: 'The King of Fighters XV',
+      description: 'Festival de The King of Fighters XV con cosplay y premios'
     }
   ]
 
@@ -40,7 +52,7 @@ const Torneos = () => {
   ]
 
   return (
-    <div className="torneos-page">
+    <div className="torneos-page dynamic-bg">
       {/* Floating elements for dynamic background */}
       <div className="torneos-floating-elements">
         <div className="torneos-floating-element"></div>
@@ -51,7 +63,7 @@ const Torneos = () => {
         <div className="torneos-floating-element"></div>
       </div>
 
-      <div className="hero-section">
+      <div className="hero-section" style={{marginTop: 0, paddingTop: 0}}>
         <Carousel
           images={tournamentImages}
           title="Torneos de Gaming"

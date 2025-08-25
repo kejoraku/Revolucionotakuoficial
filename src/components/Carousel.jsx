@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './Carousel.css'
 
 const Carousel = ({ images, title, autoPlayInterval = 5000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const intervalRef = useRef(null)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
+  // Reinicia el temporizador
+  const resetInterval = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current)
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       )
     }, autoPlayInterval)
+  }
 
-    return () => clearInterval(interval)
-  }, [images.length, autoPlayInterval])
+  useEffect(() => {
+    resetInterval()
+    return () => clearInterval(intervalRef.current)
+  }, [images.length, autoPlayInterval, currentIndex])
 
   const goToSlide = (index) => {
     if (index >= 0 && index < images.length) {
@@ -21,13 +27,13 @@ const Carousel = ({ images, title, autoPlayInterval = 5000 }) => {
   }
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     )
   }
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     )
   }
@@ -36,16 +42,21 @@ const Carousel = ({ images, title, autoPlayInterval = 5000 }) => {
     goToSlide(index)
   }
 
+  // Cuando el usuario cambia manualmente, reiniciar el temporizador
+  const handleManualChange = (changeFn) => {
+    changeFn()
+    resetInterval()
+  }
+
   return (
     <div className="carousel-container">
       <h2 className="carousel-title">{title}</h2>
       <div className="carousel">
-        <button className="carousel-button prev" onClick={goToPrevious}>
+        <button className="carousel-button prev" onClick={() => handleManualChange(goToPrevious)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
-        
         <div className="carousel-slides">
           {images.map((image, index) => (
             <div
@@ -63,20 +74,18 @@ const Carousel = ({ images, title, autoPlayInterval = 5000 }) => {
             </div>
           ))}
         </div>
-
-        <button className="carousel-button next" onClick={goToNext}>
+        <button className="carousel-button next" onClick={() => handleManualChange(goToNext)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
       </div>
-
       <div className="carousel-indicators">
         {images.map((_, index) => (
           <button
             key={index}
             className={`indicator ${index === currentIndex ? 'active' : ''}`}
-            onClick={() => handleIndicatorClick(index)}
+            onClick={() => handleManualChange(() => goToSlide(index))}
             type="button"
             aria-label={`Go to slide ${index + 1}`}
           />

@@ -6,7 +6,8 @@ import gaming_tournament from '../../contenido/eventos/gaming_tournament.jpg';
 import manga_reading_club from '../../contenido/eventos/manga_reading_club.jpg';
 import anime_movie_night from '../../contenido/eventos/anime_movie_night.jpg';
 import cosplay_workshop from '../../contenido/eventos/cosplay_workshop.jpg';
-
+import eventos_espacio_publicitario_1 from '../../contenido/eventos/eventos_espacio_publicitario_1.png';
+import eventos_gaming_tournament from '../../contenido/eventos/eventos_gaming_tournament.png';
 
 
 const Eventos = () => {
@@ -24,6 +25,11 @@ const Eventos = () => {
       description: 'Compite en nuestro torneo de videojuegos con premios increíbles'
     },
     {
+      url: eventos_espacio_publicitario_1,
+      title: 'Espacio Publicitario',
+      description: '¡Descubre los anuncios y sorpresas de la convención!'
+    },
+    {
       url: manga_reading_club,
       /*url: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',*/
       title: 'Manga Reading Club',
@@ -34,6 +40,11 @@ const Eventos = () => {
       /*url: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',*/
       title: 'Anime Movie Night',
       description: 'Proyecciones especiales de las mejores películas de anime'
+    },
+    {
+      url: eventos_gaming_tournament,
+      title: 'Gaming Zone',
+      description: 'Zona especial de gaming y torneos en la convención'
     },
     {
       url: cosplay_workshop,
@@ -83,7 +94,7 @@ const Eventos = () => {
   ]
 
   return (
-    <div className="eventos-page">
+    <div className="eventos-page dynamic-bg">
       {/* Floating elements for dynamic background */}
       <div className="eventos-floating-elements">
         <div className="eventos-floating-element"></div>
@@ -93,7 +104,7 @@ const Eventos = () => {
         <div className="eventos-floating-element"></div>
       </div>
 
-      <div className="hero-section">
+      <div className="hero-section" style={{marginTop: 0, paddingTop: 0}}>
         <Carousel 
           images={eventImages} 
           title="Próximos Eventos" 

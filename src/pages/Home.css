@@ -1,17 +1,19 @@
-.home-page {
+.home-page.dynamic-bg {
   min-height: 100vh;
-  padding-top: 80px;
+  padding-top: 0;
   position: relative;
-  background: var(--color-bg);
+  background: linear-gradient(135deg, #FFFF01 0%, #FFF9C4 100%);
   color: var(--color-text);
+  overflow: hidden;
 }
 
-.hero-section {
-  background: var(--color-bg);
-  padding: 3rem 0;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
+.hero-section,
+.content-section {
+  background: none;
+  box-shadow: none;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 2rem;
 }
 
 .hero-section::before {
@@ -35,15 +37,6 @@
   background: radial-gradient(circle at 20% 80%, rgba(84, 188, 213, 0.1) 0%, transparent 50%),
               radial-gradient(circle at 80% 20%, rgba(84, 188, 213, 0.1) 0%, transparent 50%);
   animation: pulse 4s ease-in-out infinite;
-}
-
-.content-section {
-  padding: 3rem 0;
-  background: linear-gradient(135deg, var(--color-bg), var(--color-bg-secondary));
-  background-size: 200% 200%;
-  animation: gradientShift 12s ease infinite;
-  position: relative;
-  overflow: hidden;
 }
 
 .content-section::before {
@@ -100,8 +93,9 @@
 }
 
 .content-card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
+  background: none;
+  box-shadow: none;
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(3, 0, 2, 0.2);
   transition: all 0.3s ease;
@@ -223,7 +217,7 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  height: 100vh;
   pointer-events: none;
   z-index: 0;
 }
@@ -266,6 +260,132 @@
   bottom: 15%;
   right: 10%;
   animation-delay: 1s;
+}
+
+.home-slide-review {
+  background: none;
+  box-shadow: none;
+  border-radius: 18px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 2rem auto 2rem auto;
+  overflow: hidden;
+  min-height: 340px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.4,2,.3,1), transform 0.7s cubic-bezier(.4,2,.3,1);
+}
+.home-slide-review.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.home-slide-review .slide-image {
+  flex: 0 0 50%;
+  min-width: 0;
+  max-width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f3f3;
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.7s 0.1s cubic-bezier(.4,2,.3,1), transform 0.7s 0.1s cubic-bezier(.4,2,.3,1);
+  min-height: 340px;
+}
+.home-slide-review.visible .slide-image {
+  opacity: 1;
+  transform: translateX(0);
+}
+.home-slide-review .slide-image img {
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  display: block;
+  margin: 0 auto;
+  align-self: center;
+  justify-self: center;
+}
+.home-slide-review .slide-review-text {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 2.5rem 2.5rem;
+  color: #030002;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: transparent;
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.7s 0.2s cubic-bezier(.4,2,.3,1), transform 0.7s 0.2s cubic-bezier(.4,2,.3,1);
+}
+.home-slide-review.visible .slide-review-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+.slide-image {
+  flex: 1 1 50%;
+  min-width: 200px;
+  max-width: 400px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f3f3;
+}
+.slide-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+}
+.slide-review-text {
+  flex: 1 1 50%;
+  padding: 2rem 2.5rem;
+  color: #030002;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: transparent;
+}
+.slide-review-text h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #030002;
+}
+.slide-review-text p {
+  font-size: 1.15rem;
+  color: #333;
+  line-height: 1.7;
+}
+@media (max-width: 900px) {
+  .home-slide-review {
+    flex-direction: column;
+    min-height: unset;
+  }
+  .slide-image, .slide-review-text {
+    max-width: 100%;
+    width: 100%;
+    padding: 1.2rem;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none;
+  }
+  .slide-review-text {
+    padding: 1.2rem;
+  }
+  .slide-image {
+    min-width: 0;
+    max-width: 100%;
+    height: 220px;
+  }
 }
 
 /* Responsive design */

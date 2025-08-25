@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import Carousel from '../components/Carousel'
 import './Home.css'
 
@@ -6,47 +6,70 @@ import nuevas_temporadas from '../../contenido/nuevas_temporadas.jpg';
 import manga_exclusivo from '../../contenido/mangas.jpg';
 import gaming_news from '../../contenido/gaming_news.jpeg';
 import bienvenida from '../../contenido/inicio/bienvenida.jpg';
-import lanzamientos from '../../contenido/inicio/ultimos_lanzamientos.jpg';
+import ultimos_lanzamientos from '../../contenido/inicio/inicio_ultimos_lanzamientos.jpg';
 import comunidad from '../../contenido/inicio/comunidad.jpg';
 import gaming_anime from '../../contenido/inicio/gaming_anime.jpg';
 import eventos_especiales from '../../contenido/inicio/eventos_especiales.jpg';
+import inicio_espacio_publicitario_1 from '../../contenido/inicio/inicio_espacio_publicitario_1.png';
+import inicio_espacio_publicitario_2 from '../../contenido/inicio/inicio_espacio_publicitario_2.jpg';
 
 const Home = () => {
   const homeImages = [
     {
       url: bienvenida,
-      /*url: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',*/
       title: 'Bienvenido a Revolución Otaku',
       description: 'Tu destino definitivo para todo lo relacionado con anime, manga y gaming'
     },
     {
-      url: lanzamientos,
-      /*url: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',*/
+      url: ultimos_lanzamientos,
       title: 'Últimos Lanzamientos',
       description: 'Descubre las nuevas series y películas que están causando sensación'
     },
     {
+      url: inicio_espacio_publicitario_1,
+      title: 'AliExpress',
+      description: '¡No te pierdas nuestras novedades y promociones exclusivas!'
+    },
+    {
       url: comunidad,
-      /*url: 'https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',*/
       title: 'Comunidad Otaku',
       description: 'Conecta con otros fans y comparte tu pasión por el anime'
     },
     {
       url: gaming_anime,
-      /*url: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',*/
       title: 'Gaming y Anime',
       description: 'Explora el mundo de los videojuegos inspirados en anime'
     },
     {
+      url: inicio_espacio_publicitario_2,
+      title: 'msi',
+      description: '¡Participa en sorteos y eventos especiales de la comunidad!'
+    },
+    {
       url: eventos_especiales, 
-      /*url: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',*/
       title: 'Eventos Especiales',
       description: 'No te pierdas nuestros eventos exclusivos y convenciones'
     }
   ]
 
+  const slideRef = useRef(null);
+  const [slideVisible, setSlideVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!slideRef.current) return;
+      const rect = slideRef.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8) {
+        setSlideVisible(true);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="home-page">
+    <div className="home-page dynamic-bg">
       {/* Floating elements for dynamic background */}
       <div className="home-floating-elements">
         <div className="home-floating-element"></div>
@@ -54,13 +77,22 @@ const Home = () => {
         <div className="home-floating-element"></div>
         <div className="home-floating-element"></div>
       </div>
-
-      <div className="hero-section">
+      <div className="hero-section" style={{marginTop: 0, paddingTop: 0}}>
         <Carousel 
           images={homeImages} 
           title="Destacados de la Semana" 
           autoPlayInterval={5000}
         />
+      </div>
+      {/* Slide + Reseña entre carrusel y tarjetas */}
+      <div ref={slideRef} className={`home-slide-review${slideVisible ? ' visible' : ''}`}>
+        <div className="slide-image">
+          <img src={comunidad} alt="Grupo de Anime" />
+        </div>
+        <div className="slide-review-text">
+          <h3>Grupo de Anime Revolución Otaku</h3>
+          <p>Únete a nuestro grupo de anime donde compartimos noticias, recomendaciones, memes y organizamos eventos para todos los fans. ¡Vive la pasión otaku con nosotros y haz nuevos amigos que comparten tu afición!</p>
+        </div>
       </div>
 
       <div className="content-section">
@@ -70,7 +102,6 @@ const Home = () => {
             <div className="content-card">
               <div className="card-image">
                 <img src={nuevas_temporadas}/>
-                {/*<img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Anime" />*/}
               </div>
               <div className="card-content">
                 <h3>Nuevas Temporadas</h3>
@@ -82,7 +113,6 @@ const Home = () => {
             <div className="content-card">
               <div className="card-image">
                 <img src={manga_exclusivo}/>
-                {/*<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Manga" />*/}
               </div>
               <div className="card-content">
                 <h3>Manga Exclusivo</h3>
@@ -94,7 +124,6 @@ const Home = () => {
             <div className="content-card">
               <div className="card-image">
                 <img src={gaming_news}/>
-                {/*<img src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gaming" />*/}
               </div>
               <div className="card-content">
                 <h3>Gaming News</h3>
