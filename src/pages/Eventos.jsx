@@ -8,6 +8,11 @@ import anime_movie_night from '../../contenido/eventos/anime_movie_night.jpg';
 import cosplay_workshop from '../../contenido/eventos/cosplay_workshop.jpg';
 import eventos_espacio_publicitario_1 from '../../contenido/eventos/eventos_espacio_publicitario_1.png';
 import eventos_gaming_tournament from '../../contenido/eventos/eventos_gaming_tournament.png';
+import eventos_argentina_game_show from '../../contenido/eventos/eventos_argentina_game_show.png';
+import eventos_tokyo_stream from '../../contenido/eventos/eventos_tokyo_stream.png';
+import eventos_x_box from '../../contenido/eventos/eventos_x_box.png';
+import eventos_electronic_arts from '../../contenido/eventos/eventos_electronic_arts.png';
+import eventos_evento_publicitario from '../../contenido/eventos/eventos_evento_publicitario.png';
 
 
 const Eventos = () => {
@@ -25,32 +30,34 @@ const Eventos = () => {
       description: 'Compite en nuestro torneo de videojuegos con premios increíbles'
     },
     {
-      url: eventos_espacio_publicitario_1,
-      title: 'Espacio Publicitario',
-      description: '¡Descubre los anuncios y sorpresas de la convención!'
+      url: eventos_argentina_game_show,
+      title: 'Argentina Game Show',
+      description: 'El evento gamer más grande de Argentina',
+      link: 'https://app.ags.show/'
     },
     {
-      url: manga_reading_club,
-      /*url: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',*/
-      title: 'Manga Reading Club',
-      description: 'Únete a nuestro club de lectura de manga semanal'
+      url: eventos_tokyo_stream,
+      title: 'Tokyo Stream Party',
+      description: 'Vive el streaming party más esperado',
+      link: 'https://www.passline.com/eventos/stream-party-139?srsltid=AfmBOoppbVBsdVDOD_0ZIxjtSRYyfJ5xwjCG_9sRftAgCXguvMlD7Xba'
     },
     {
-      url: anime_movie_night,
-      /*url: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',*/
-      title: 'Anime Movie Night',
-      description: 'Proyecciones especiales de las mejores películas de anime'
+      url: eventos_x_box,
+      title: 'Xbox Fan Fest',
+      description: 'Descubre lo nuevo de Xbox',
+      link: 'https://www.xbox.com/es-AR'
     },
     {
-      url: eventos_gaming_tournament,
-      title: 'Gaming Zone',
-      description: 'Zona especial de gaming y torneos en la convención'
+      url: eventos_electronic_arts,
+      title: 'Electronic Arts',
+      description: 'Ofertas y novedades de EA',
+      link: 'https://www.ea.com/es-es'
     },
     {
-      url: cosplay_workshop,
-      /*url: 'https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',*/
-      title: 'Cosplay Workshop',
-      description: 'Aprende técnicas de cosplay con expertos del mundo otaku'
+      url: eventos_evento_publicitario,
+      title: 'Bon Odori',
+      description: 'Festival tradicional japonés en La Plata',
+      link: 'https://bon-odori.com.ar/'
     }
   ]
 
