@@ -67,6 +67,15 @@ const Carousel = ({ images, title, autoPlayInterval = 5000 }) => {
                 transform: `translateX(${(index - currentIndex) * 100}%)`
               }}
             >
+              {image.link && (
+                <a
+                  href={image.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Abrir enlace de ${image.title}`}
+                  style={{ position: 'absolute', inset: 0, zIndex: 10 }}
+                />
+              )}
               <div className="slide-content">
                 <h3 className="slide-title">{image.title}</h3>
                 <p className="slide-description">{image.description}</p>

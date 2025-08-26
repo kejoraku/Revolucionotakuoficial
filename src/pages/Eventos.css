@@ -137,8 +137,8 @@
 
 .event-content {
   padding: 1.5rem;
-  background: linear-gradient(transparent, rgba(3, 0, 2, 0.9));
-  color: #ffffff;
+  background: transparent;
+  color: #030002;
   position: relative;
   flex: 1;
   display: flex;
@@ -148,7 +148,7 @@
 .event-date {
   font-family: 'Rajdhani', sans-serif;
   font-size: 0.9rem;
-  color: #e0e0e0;
+  color: #333333;
   font-weight: 600;
   margin-bottom: 0.5rem;
   letter-spacing: 1px;
@@ -176,7 +176,7 @@
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  color: #030002;
   text-shadow: 0 0 15px rgba(84, 188, 213, 0.9);
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -201,7 +201,7 @@
 .event-location {
   font-family: 'Rajdhani', sans-serif;
   font-size: 1rem;
-  color: #e0e0e0;
+  color: #333333;
   margin-bottom: 1rem;
   font-weight: 500;
   display: flex;
@@ -217,7 +217,7 @@
 
 .event-description {
   font-family: 'Rajdhani', sans-serif;
-  color: #e0e0e0;
+  color: #333333;
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-weight: 500;

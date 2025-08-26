@@ -5,25 +5,26 @@ import './Home.css'
 import nuevas_temporadas from '../../contenido/nuevas_temporadas.jpg';
 import manga_exclusivo from '../../contenido/mangas.jpg';
 import gaming_news from '../../contenido/gaming_news.jpeg';
-import bienvenida from '../../contenido/inicio/bienvenida.jpg';
+import inicio_bienvenida from '../../contenido/inicio/inicio_bienvenida.jpg';
 import ultimos_lanzamientos from '../../contenido/inicio/inicio_ultimos_lanzamientos.jpg';
 import comunidad from '../../contenido/inicio/comunidad.jpg';
-import gaming_anime from '../../contenido/inicio/gaming_anime.jpg';
+import inicio_gaming_y_anime from '../../contenido/inicio/inicio_gaming_y_anime.png';
 import eventos_especiales from '../../contenido/inicio/eventos_especiales.jpg';
 import inicio_espacio_publicitario_1 from '../../contenido/inicio/inicio_espacio_publicitario_1.png';
-import inicio_espacio_publicitario_2 from '../../contenido/inicio/inicio_espacio_publicitario_2.jpg';
+import inicio_ofertas_steam from '../../contenido/inicio/inicio_ofertas_steam.png';
 
 const Home = () => {
   const homeImages = [
     {
-      url: bienvenida,
+      url: inicio_bienvenida,
       title: 'Bienvenido a Revolución Otaku',
       description: 'Tu destino definitivo para todo lo relacionado con anime, manga y gaming'
     },
     {
       url: ultimos_lanzamientos,
       title: 'Últimos Lanzamientos',
-      description: 'Descubre las nuevas series y películas que están causando sensación'
+      description: 'Descubre las nuevas series y películas que están causando sensación',
+      link: 'https://www.playstation.com/es-ar/'
     },
     {
       url: inicio_espacio_publicitario_1,
@@ -36,14 +37,15 @@ const Home = () => {
       description: 'Conecta con otros fans y comparte tu pasión por el anime'
     },
     {
-      url: gaming_anime,
+      url: inicio_gaming_y_anime,
       title: 'Gaming y Anime',
       description: 'Explora el mundo de los videojuegos inspirados en anime'
     },
     {
-      url: inicio_espacio_publicitario_2,
-      title: 'msi',
-      description: '¡Participa en sorteos y eventos especiales de la comunidad!'
+      url: inicio_ofertas_steam,
+      title: 'Ofertas Steam',
+      description: 'Descubre grandes descuentos en tus juegos favoritos',
+      link: 'https://store.steampowered.com/'
     },
     {
       url: eventos_especiales, 

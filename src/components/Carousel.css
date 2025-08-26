@@ -175,7 +175,7 @@
   }
 
   .carousel {
-    height: 350px;
+    height: 320px;
     border-radius: 12px;
   }
 
@@ -207,7 +207,7 @@
 
 @media (max-width: 480px) {
   .carousel {
-    height: 280px;
+    height: 230px;
   }
 
   .slide-content {
@@ -228,18 +228,16 @@
   .carousel-slide {
     background-size: cover;
     background-position: center;
-  }
-  
-  .carousel-slide img {
-    object-fit: cover;
-    max-width: 100%;
-    max-height: 100%;
+    background-color: #000;
   }
 }
 
+/* En pantallas muy pequeñas mostrar el banner completo (sin recorte) */
 @media (max-width: 480px) {
   .carousel-slide {
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #000;
   }
 }
