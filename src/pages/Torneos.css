@@ -2,7 +2,7 @@
   min-height: 100vh;
   padding-top: 0;
   position: relative;
-  background: linear-gradient(135deg, #FFFF01 0%, #FFF9C4 100%);
+  background: var(--gradient-yellow-dark);
   color: var(--color-text);
   overflow: hidden;
 }
@@ -18,29 +18,7 @@
   padding-bottom: 2rem;
 }
 
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="diamonds" width="25" height="25" patternUnits="userSpaceOnUse"><polygon points="12.5,0 25,12.5 12.5,25 0,12.5" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/></pattern><pattern id="stars" width="30" height="30" patternUnits="userSpaceOnUse"><polygon points="15,0 18,12 30,12 20,20 25,32 15,25 5,32 10,20 0,12 12,12" fill="rgba(84,188,213,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23diamonds)"/><rect width="100" height="100" fill="url(%23stars)"/></svg>');
-  opacity: 0.4;
-  animation: rotate 90s linear infinite;
-}
-
-.hero-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 25% 75%, rgba(0, 0, 0, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 75% 25%, rgba(84, 188, 213, 0.15) 0%, transparent 50%);
-  animation: pulse 5s ease-in-out infinite;
-}
+/* Eliminado hero-section::before y ::after para quitar efectos de sombreado */
 
 .content-section::before {
   content: '';
@@ -102,7 +80,7 @@
 }
 
 .tournament-card {
-  background: none;
+  background: rgba(255, 255, 255, 0.95);
   box-shadow: none;
   border-radius: 18px;
   overflow: hidden;
@@ -111,6 +89,9 @@
   border: 1px solid rgba(3, 0, 2, 0.1);
   position: relative;
   backdrop-filter: blur(10px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .tournament-card::before {
@@ -196,6 +177,9 @@
 
 .tournament-content {
   padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .tournament-title {
@@ -301,6 +285,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  margin-top: auto;
 }
 
 .tournament-button::before {
@@ -421,5 +406,35 @@
   .tournament-info {
     grid-template-columns: 1fr;
     gap: 0.5rem;
+  }
+  
+  .tournament-card {
+    min-height: 450px;
+  }
+  
+  .tournament-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tournaments-content {
+    padding: 0 0.5rem;
+  }
+  
+  .tournaments-grid {
+    gap: 1rem;
+  }
+  
+  .tournament-card {
+    min-height: 400px;
+  }
+  
+  .tournament-image {
+    height: 160px;
+  }
+  
+  .tournament-content {
+    padding: 1rem;
   }
 }

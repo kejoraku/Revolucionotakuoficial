@@ -2,7 +2,7 @@
   min-height: 100vh;
   padding-top: 0;
   position: relative;
-  background: linear-gradient(135deg, #FFFF01 0%, #FFF9C4 100%);
+  background: var(--gradient-yellow-dark);
   color: var(--color-text);
   overflow: hidden;
 }
@@ -16,28 +16,7 @@
   padding-bottom: 2rem;
 }
 
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="0.5"/></pattern><pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1" fill="rgba(84,188,213,0.3)"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/><rect width="100" height="100" fill="url(%23dots)"/></svg>');
-  opacity: 0.4;
-}
-
-.hero-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 20% 80%, rgba(84, 188, 213, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(84, 188, 213, 0.1) 0%, transparent 50%);
-  animation: pulse 4s ease-in-out infinite;
-}
+/* Eliminado hero-section::before y ::after para quitar efectos de sombreado */
 
 .content-section::before {
   content: '';
@@ -93,7 +72,7 @@
 }
 
 .content-card {
-  background: none;
+  background: rgba(255, 255, 255, 0.95);
   box-shadow: none;
   border-radius: 18px;
   overflow: hidden;
@@ -102,6 +81,9 @@
   border: 1px solid rgba(3, 0, 2, 0.1);
   position: relative;
   backdrop-filter: blur(10px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .content-card::before {
@@ -124,11 +106,18 @@
 .card-image {
   width: 100%;
   height: 200px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.content-card:hover .card-image {
+.content-card:hover .card-image img {
   transform: scale(1.05);
 }
 
@@ -137,6 +126,9 @@
   background: linear-gradient(transparent, rgba(3, 0, 2, 0.9));
   color: #ffffff;
   position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-content h3 {
@@ -189,6 +181,7 @@
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
+  margin-top: auto;
 }
 
 .card-button::before {
@@ -263,8 +256,8 @@
 }
 
 .home-slide-review {
-  background: none;
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px rgba(3, 0, 2, 0.2);
   border-radius: 18px;
   display: flex;
   align-items: stretch;
@@ -294,22 +287,25 @@
   transform: translateX(-80px);
   transition: opacity 0.7s 0.1s cubic-bezier(.4,2,.3,1), transform 0.7s 0.1s cubic-bezier(.4,2,.3,1);
   min-height: 340px;
+  overflow: hidden;
+  position: relative;
 }
 .home-slide-review.visible .slide-image {
   opacity: 1;
   transform: translateX(0);
 }
 .home-slide-review .slide-image img {
-  max-width: 90%;
-  max-height: 90%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 0;
   display: block;
   margin: 0 auto;
   align-self: center;
   justify-self: center;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .home-slide-review .slide-review-text {
   flex: 0 0 50%;
@@ -323,6 +319,7 @@
   opacity: 0;
   transform: translateX(80px);
   transition: opacity 0.7s 0.2s cubic-bezier(.4,2,.3,1), transform 0.7s 0.2s cubic-bezier(.4,2,.3,1);
+  text-align: center;
 }
 .home-slide-review.visible .slide-review-text {
   opacity: 1;
@@ -369,22 +366,118 @@
   .home-slide-review {
     flex-direction: column;
     min-height: unset;
+    margin: 1rem auto;
+    padding: 0;
   }
   .slide-image, .slide-review-text {
     max-width: 100%;
     width: 100%;
-    padding: 1.2rem;
     transform: none !important;
     opacity: 1 !important;
     transition: none;
   }
   .slide-review-text {
-    padding: 1.2rem;
+    padding: 1.5rem;
+    text-align: center;
   }
   .slide-image {
     min-width: 0;
     max-width: 100%;
+    height: 250px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-slide-review {
+    margin: 1rem;
+    border-radius: 12px;
+    padding: 0;
+  }
+  
+  .slide-image {
+    height: 200px;
+    padding: 0;
+  }
+  
+  .slide-review-text {
+    padding: 1.2rem;
+    text-align: center;
+  }
+  
+  .slide-review-text h3 {
+    font-size: 1.5rem;
+  }
+  
+  .slide-review-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-slide-review {
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    max-width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(3, 0, 2, 0.15);
+  }
+  
+  .slide-image {
     height: 220px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  
+  .slide-review-text {
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .slide-review-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #030002;
+  }
+  
+  .slide-review-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-slide-review {
+    margin: 1rem auto;
+    padding: 1.2rem;
+    max-width: 90%;
+    border-radius: 14px;
+  }
+  
+  .slide-image {
+    height: 200px;
+    margin-bottom: 1.2rem;
+  }
+  
+  .slide-review-text h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .slide-review-text p {
+    font-size: 1rem;
+    line-height: 1.6;
   }
 }
 
@@ -401,10 +494,38 @@
   .content-grid {
     grid-template-columns: 1fr;
     padding: 0 1rem;
+    gap: 1.5rem;
   }
 
   .section-title {
     font-size: 2rem;
     margin-bottom: 2rem;
+  }
+  
+  .content-card {
+    min-height: 400px;
+  }
+  
+  .card-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-grid {
+    padding: 0 0.5rem;
+    gap: 1rem;
+  }
+  
+  .content-card {
+    min-height: 350px;
+  }
+  
+  .card-image {
+    height: 160px;
+  }
+  
+  .card-content {
+    padding: 1rem;
   }
 }

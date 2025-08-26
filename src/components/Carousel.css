@@ -27,7 +27,6 @@
   height: 500px;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(3, 0, 2, 0.3);
 }
 
 .carousel-slides {
@@ -51,6 +50,7 @@
   object-fit: cover;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+  overflow: hidden;
 }
 
 .slide-content {
@@ -220,5 +220,26 @@
 
   .slide-description {
     font-size: 0.9rem;
+  }
+}
+
+/* Mejorar responsividad de imágenes en móvil */
+@media (max-width: 768px) {
+  .carousel-slide {
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .carousel-slide img {
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-slide {
+    background-size: cover;
+    background-position: center;
   }
 }
