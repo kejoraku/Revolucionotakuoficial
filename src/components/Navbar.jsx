@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    setIsLoggedIn(localStorage.getItem('isLoggedIn') === 'true')
+  }, [location])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -16,20 +22,26 @@ const Navbar = () => {
 
   const handleNavigation = () => {
     closeMenu()
-    // Scroll to top when navigating
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     })
   }
 
+  const handleLogout = () => {
+    localStorage.removeItem('authToken')
+    localStorage.removeItem('isLoggedIn')
+    setIsLoggedIn(false)
+    closeMenu()
+    navigate('/')
+  }
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={handleNavigation}>
-        <span className="logo-text">Revolución Otaku</span>
-        <span className="logo-subtitle">OFICIAL</span>
+          <span className="logo-text">Revolución Otaku</span>
+          <span className="logo-subtitle">OFICIAL</span>
         </Link>
 
         <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
@@ -54,6 +66,20 @@ const Navbar = () => {
           >
             Torneos
           </Link>
+          {!isLoggedIn && (
+            <Link 
+              to="/login" 
+              className={`nav-link ${location.pathname === '/login' ? 'active' : ''}`}
+              onClick={handleNavigation}
+            >
+              Login
+            </Link>
+          )}
+          {isLoggedIn && (
+            <button className="nav-link logout-link" onClick={handleLogout} style={{background: 'none', border: 'none', cursor: 'pointer'}}>
+              Cerrar sesión
+            </button>
+          )}
         </div>
 
         <div className="navbar-toggle" onClick={toggleMenu}>
@@ -65,8 +91,5 @@ const Navbar = () => {
     </nav>
   )
 }
-
-
-
 
 export default Navbar

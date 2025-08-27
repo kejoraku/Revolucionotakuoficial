@@ -86,7 +86,7 @@ const Home = () => {
           autoPlayInterval={5000}
         />
       </div>
-      {/* Slide + Reseña entre carrusel y tarjetas */}
+      {/* Slide + Reseña entre carrussel y tarjetas */}
       <div ref={slideRef} className={`home-slide-review${slideVisible ? ' visible' : ''}`}>
         <div className="slide-image">
           <img src={comunidad} alt="Grupo de Anime" />

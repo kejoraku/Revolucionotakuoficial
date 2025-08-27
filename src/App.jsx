@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Eventos from './pages/Eventos'
 import Torneos from './pages/Torneos'
+import Login from './pages/Login'
 import './App.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/eventos" element={<Eventos />} />
             <Route path="/torneos" element={<Torneos />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </main>
       </div>
