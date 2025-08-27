@@ -14,11 +14,20 @@ const Navbar = () => {
     setIsMenuOpen(false)
   }
 
+  const handleNavigation = () => {
+    closeMenu()
+    // Scroll to top when navigating
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo" onClick={closeMenu}>
+        <Link to="/" className="navbar-logo" onClick={handleNavigation}>
         <span className="logo-text">Revolución Otaku</span>
         <span className="logo-subtitle">OFICIAL</span>
         </Link>
@@ -27,21 +36,21 @@ const Navbar = () => {
           <Link 
             to="/" 
             className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
-            onClick={closeMenu}
+            onClick={handleNavigation}
           >
             Inicio
           </Link>
           <Link 
             to="/eventos" 
             className={`nav-link ${location.pathname === '/eventos' ? 'active' : ''}`}
-            onClick={closeMenu}
+            onClick={handleNavigation}
           >
             Eventos
           </Link>
           <Link 
             to="/torneos" 
             className={`nav-link ${location.pathname === '/torneos' ? 'active' : ''}`}
-            onClick={closeMenu}
+            onClick={handleNavigation}
           >
             Torneos
           </Link>
