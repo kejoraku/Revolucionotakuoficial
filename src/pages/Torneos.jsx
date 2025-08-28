@@ -61,18 +61,43 @@ const Torneos = () => {
   const handleTournamentAction = (tournament) => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'
     
-    if (!isLoggedIn) {
-      // Si no está logueado, redirigir a login
-      navigate('/login')
-      return
-    }
-    
-    // Si está logueado, proceder con la acción normal
-    const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    if (isMobile) {
-      window.open('https://www.instagram.com/revolucionotakuoficial/', '_blank');
+    if (tournament.status === 'Inscripciones Abiertas') {
+      if (!isLoggedIn) {
+        // Si no está logueado, redirigir a login
+        alert('Debes iniciar sesión para inscribirte en el torneo')
+        navigate('/login')
+        return
+      }
+      
+      // Si está logueado y las inscripciones están abiertas, redirigir a MercadoPago
+      const mercadopagoUrl = `https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=REVOLUCION_OTAKU_${tournament.id}`
+      
+      // Mostrar confirmación antes de redirigir
+      const confirmInscription = window.confirm(
+        `¿Estás seguro de que quieres inscribirte en "${tournament.title}"?\n\n` +
+        `Costo de inscripción: $3,000 ARS\n` +
+        `Serás redirigido a MercadoPago para completar el pago.`
+      )
+      
+      if (confirmInscription) {
+        // Abrir MercadoPago en una nueva pestaña
+        window.open(mercadopagoUrl, '_blank')
+        
+        // Mostrar mensaje de confirmación
+        alert(
+          '¡Inscripción iniciada!\n\n' +
+          'Has sido redirigido a MercadoPago para completar el pago de $3,000 ARS.\n' +
+          'Una vez completado el pago, recibirás una confirmación por email.'
+        )
+      }
     } else {
-      window.open('https://www.instagram.com/direct/t/17845492661911069', '_blank');
+      // Para torneos que no tienen inscripciones abiertas, mostrar información
+      const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      if (isMobile) {
+        window.open('https://www.instagram.com/revolucionotakuoficial/', '_blank');
+      } else {
+        window.open('https://www.instagram.com/direct/t/17845492661911069', '_blank');
+      }
     }
   }
 
@@ -99,6 +124,16 @@ const Torneos = () => {
       <div className="content-section">
         <div className="tournaments-content">
           <h2 className="section-title">Torneos Activos</h2>
+          
+          {/* Información sobre inscripciones */}
+          <div className="inscription-info">
+            <div className="info-box">
+              <h3>💳 Inscripciones con MercadoPago</h3>
+              <p>Costo de inscripción: <strong>$3,000 ARS</strong> por torneo</p>
+              <p>Pago seguro con transferencia bancaria, tarjeta de crédito/débito o efectivo</p>
+            </div>
+          </div>
+          
           <div className="tournaments-grid">
             {activeTournaments.map((tournament) => (
               <div key={tournament.id} className="tournament-card">
@@ -129,13 +164,17 @@ const Torneos = () => {
                       <span className="info-label">Participantes:</span>
                       <span className="info-value">{tournament.participants}</span>
                     </div>
+                    <div className="info-item">
+                      <span className="info-label">Inscripción:</span>
+                      <span className="info-value inscription-cost">$3,000 ARS</span>
+                    </div>
                   </div>
                   <p className="tournament-description">{tournament.description}</p>
                   <button
-                    className="tournament-button"
+                    className={`tournament-button ${tournament.status === 'Inscripciones Abiertas' ? 'inscription-button' : ''}`}
                     onClick={() => handleTournamentAction(tournament)}
                   >
-                    {tournament.status === 'Inscripciones Abiertas' ? 'Inscribirse' : 'Más Información'}
+                    {tournament.status === 'Inscripciones Abiertas' ? '💳 Inscribirse' : 'Más Información'}
                   </button>
                 </div>
               </div>

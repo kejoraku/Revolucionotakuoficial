@@ -8,6 +8,7 @@ const Login = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
+    tag: '',
     email: '',
     phone: '',
     receiveNews: false
@@ -67,6 +68,16 @@ const Login = () => {
     return ''
   }
 
+  const validateTag = (tag) => {
+    if (!tag) return ''
+    if (tag.length < 3) return 'El tag debe tener al menos 3 caracteres'
+    if (tag.length > 15) return 'El tag no puede tener más de 15 caracteres'
+    if (!/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+$/.test(tag)) {
+      return 'El tag puede contener letras, números y símbolos'
+    }
+    return ''
+  }
+
   const validateEmail = (email) => {
     if (!email) return ''
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -97,6 +108,9 @@ const Login = () => {
         break
       case 'password':
         error = validatePassword(newValue)
+        break
+      case 'tag':
+        error = validateTag(newValue)
         break
       case 'email':
         error = validateEmail(newValue)
@@ -139,7 +153,7 @@ const Login = () => {
     }
 
     // Validar campos obligatorios
-    if (!formData.username || !formData.password || !formData.email) {
+    if (!formData.username || !formData.password || !formData.email || !formData.tag) {
       setMessage('Por favor completa todos los campos obligatorios')
       setIsLoading(false)
       return
@@ -157,10 +171,11 @@ const Login = () => {
       const data = await response.json()
 
       if (response.ok) {
-        setMessage('¡Registro exitoso! Ya puedes iniciar sesión.')
+        setMessage('¡Registro exitoso! Se ha enviado un email de confirmación. Ya puedes iniciar sesión.')
         setFormData({
           username: '',
           password: '',
+          tag: '',
           email: '',
           phone: '',
           receiveNews: false
@@ -315,6 +330,24 @@ const Login = () => {
                 <span className="field-error">{fieldErrors.password}</span>
               )}
               <small className="field-hint">Máximo 12 caracteres, solo letras y números</small>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="tag">Tag: *</label>
+              <input
+                type="text"
+                id="tag"
+                name="tag"
+                value={formData.tag}
+                onChange={handleInputChange}
+                maxLength={15}
+                required
+                className={fieldErrors.tag ? 'error' : ''}
+              />
+              {fieldErrors.tag && (
+                <span className="field-error">{fieldErrors.tag}</span>
+              )}
+              <small className="field-hint">3-15 caracteres, letras, números y símbolos. Este será tu nombre dentro de la liga.</small>
             </div>
 
             <div className="form-group">

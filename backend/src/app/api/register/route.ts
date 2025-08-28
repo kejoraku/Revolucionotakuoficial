@@ -1,16 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import bcrypt from 'bcryptjs'
+import { sendRegistrationConfirmation } from '@/lib/emailService'
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { username, password, email, phone, receiveNews } = body
+    const { username, password, email, tag, phone, receiveNews } = body
 
     // Validar campos obligatorios
-    if (!username || !password || !email) {
+    if (!username || !password || !email || !tag) {
       return NextResponse.json(
-        { message: 'Todos los campos obligatorios son requeridos' },
+        { message: 'Todos los campos obligatorios son requeridos (username, password, email, tag)' },
         { status: 400 }
       )
     }
@@ -38,6 +39,15 @@ export async function POST(request: NextRequest) {
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { message: 'Formato de email inválido' },
+        { status: 400 }
+      )
+    }
+
+    // Validar tag: letras, números y símbolos, 3-15 caracteres
+    const tagRegex = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{3,15}$/
+    if (!tagRegex.test(tag)) {
+      return NextResponse.json(
+        { message: 'El tag debe tener entre 3 y 15 caracteres, puede contener letras, números y símbolos' },
         { status: 400 }
       )
     }
@@ -74,6 +84,18 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Verificar si el tag ya existe
+    const existingTag = await prisma.user.findUnique({
+      where: { tag }
+    })
+
+    if (existingTag) {
+      return NextResponse.json(
+        { message: 'El tag ya está en uso' },
+        { status: 409 }
+      )
+    }
+
     // Encriptar contraseña
     const hashedPassword = await bcrypt.hash(password, 12)
 
@@ -83,9 +105,15 @@ export async function POST(request: NextRequest) {
         username,
         email,
         password: hashedPassword,
+        tag,
         phone: phone || null,
         receiveNews: receiveNews || false
       }
+    })
+
+    // Enviar email de confirmación (en segundo plano, no bloquear la respuesta)
+    sendRegistrationConfirmation(email, username, tag).catch(error => {
+      console.error('Error enviando email de confirmación:', error)
     })
 
     // Retornar respuesta exitosa (sin la contraseña)
@@ -93,7 +121,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { 
-        message: 'Usuario registrado exitosamente',
+        message: 'Usuario registrado exitosamente. Se ha enviado un email de confirmación.',
         user: userWithoutPassword
       },
       { status: 201 }
