@@ -216,3 +216,85 @@
     padding: 0.7rem 0.5rem;
   }
 }
+
+/* Estilos específicos para el enlace de Log In */
+.nav-link[href="/login"] {
+  color: #000000;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  -webkit-text-stroke: 0.5px #000000;
+  text-stroke: 0.5px #000000;
+}
+
+/* Estilos específicos para el enlace de Liga ROO */
+.nav-link[href="/liga-roo"] {
+  color: #ff4500;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link[href="/liga-roo"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 69, 0, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.nav-link[href="/liga-roo"]:hover::before {
+  left: 100%;
+}
+
+.nav-link[href="/liga-roo"]:hover {
+  color: #ff8c00;
+  text-shadow: 0 0 15px rgba(255, 69, 0, 1);
+  transform: translateY(-1px);
+}
+
+.nav-link[href="/liga-roo"].active {
+  color: #ff8c00;
+  background: rgba(255, 69, 0, 0.2);
+  text-shadow: 0 0 20px rgba(255, 69, 0, 1);
+  box-shadow: 0 0 15px rgba(255, 69, 0, 0.3);
+}
+
+.nav-link[href="/liga-roo"].active::after {
+  background: #ff4500;
+  box-shadow: 0 0 10px #ff4500;
+}
+
+/* Separador visual entre enlaces */
+.nav-separator {
+  color: #000000;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.nav-link[href="/login"]:hover {
+  color: #54BCD5;
+  background: rgba(84, 188, 213, 0.2);
+  text-shadow: 0 0 12px rgba(84, 188, 213, 1);
+  -webkit-text-stroke: 0.5px #000000;
+  text-stroke: 0.5px #000000;
+}
+
+.nav-link[href="/login"].active {
+  color: #54BCD5;
+  background: rgba(84, 188, 213, 0.3);
+  text-shadow: 0 0 15px rgba(84, 188, 213, 1);
+  -webkit-text-stroke: 0.5px #000000;
+  text-stroke: 0.5px #000000;
+}
+
+.nav-link[href="/login"].active::after {
+  background: #54BCD5;
+  box-shadow: 0 0 10px #54BCD5;
+}

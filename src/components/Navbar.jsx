@@ -46,6 +46,13 @@ const Navbar = () => {
 
         <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <Link 
+            to="/liga-roo" 
+            className={`nav-link ${location.pathname === '/liga-roo' ? 'active' : ''}`}
+            onClick={handleNavigation}
+          >
+            Liga ROO
+          </Link>
+          <Link 
             to="/" 
             className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
             onClick={handleNavigation}
@@ -67,13 +74,16 @@ const Navbar = () => {
             Torneos
           </Link>
           {!isLoggedIn && (
-            <Link 
-              to="/login" 
-              className={`nav-link ${location.pathname === '/login' ? 'active' : ''}`}
-              onClick={handleNavigation}
-            >
-              Login
-            </Link>
+            <>
+              <div className="nav-separator">|</div>
+              <Link 
+                to="/login" 
+                className={`nav-link ${location.pathname === '/login' ? 'active' : ''}`}
+                onClick={handleNavigation}
+              >
+                Log In
+              </Link>
+            </>
           )}
           {isLoggedIn && (
             <button className="nav-link logout-link" onClick={handleLogout} style={{background: 'none', border: 'none', cursor: 'pointer'}}>

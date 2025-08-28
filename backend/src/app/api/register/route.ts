@@ -15,6 +15,24 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Validar nombre de usuario: solo letras y números, 6-12 caracteres
+    const usernameRegex = /^[a-zA-Z0-9]{6,12}$/
+    if (!usernameRegex.test(username)) {
+      return NextResponse.json(
+        { message: 'El nombre de usuario debe tener entre 6 y 12 caracteres, solo letras y números' },
+        { status: 400 }
+      )
+    }
+
+    // Validar contraseña: solo letras y números, máximo 12 caracteres
+    const passwordRegex = /^[a-zA-Z0-9]{1,12}$/
+    if (!passwordRegex.test(password)) {
+      return NextResponse.json(
+        { message: 'La contraseña debe tener máximo 12 caracteres, solo letras y números' },
+        { status: 400 }
+      )
+    }
+
     // Validar formato de email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
@@ -24,19 +42,34 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Verificar si el usuario ya existe
-    const existingUser = await prisma.user.findFirst({
-      where: {
-        OR: [
-          { username },
-          { email }
-        ]
-      }
+    // Validar teléfono (opcional): solo números
+    if (phone && !/^\d+$/.test(phone)) {
+      return NextResponse.json(
+        { message: 'El teléfono debe contener solo números' },
+        { status: 400 }
+      )
+    }
+
+    // Verificar si el nombre de usuario ya existe
+    const existingUsername = await prisma.user.findUnique({
+      where: { username }
     })
 
-    if (existingUser) {
+    if (existingUsername) {
       return NextResponse.json(
-        { message: 'El nombre de usuario o email ya está en uso' },
+        { message: 'El nombre de usuario ya está en uso' },
+        { status: 409 }
+      )
+    }
+
+    // Verificar si el email ya existe
+    const existingEmail = await prisma.user.findUnique({
+      where: { email }
+    })
+
+    if (existingEmail) {
+      return NextResponse.json(
+        { message: 'El email ya está en uso' },
         { status: 409 }
       )
     }

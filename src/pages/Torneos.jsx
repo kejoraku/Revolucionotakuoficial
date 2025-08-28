@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Carousel from '../components/Carousel'
 import './Torneos.css'
 import torneos_espacio_publicitario_1 from '../../contenido/torneos/torneos_espacio_publicitario_1.png';
@@ -10,6 +11,7 @@ import torneos_street_fighter_6 from '../../contenido/torneos/torneos_street_fig
 import torneos_king_of_fighters_xv from '../../contenido/torneos/torneos_king_of_fighters_xv.jpg';
 
 const Torneos = () => {
+  const navigate = useNavigate()
   const tournamentImages = [
     {
       url: torneos_mortal_kombat_1,
@@ -55,6 +57,24 @@ const Torneos = () => {
     { id: 4, title: 'Street Fighter 6 Cup', game: 'Street Fighter 6', date: '12-15 Abril 2025', prize: '$18,000', participants: '64 jugadores', status: 'Próximamente', image: torneos_street_fighter_6, description: 'Torneo de Street Fighter 6 para todos los niveles de jugadores.' },
     { id: 5, title: 'The King of Fighters XV', game: 'The King of Fighters XV', date: '20-25 Abril 2025', prize: '$15,000', participants: '32 jugadores', status: 'Inscripciones Abiertas', image: torneos_king_of_fighters_xv, description: 'Festival de The King of Fighters XV con cosplay y premios especiales.' }
   ]
+
+  const handleTournamentAction = (tournament) => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'
+    
+    if (!isLoggedIn) {
+      // Si no está logueado, redirigir a login
+      navigate('/login')
+      return
+    }
+    
+    // Si está logueado, proceder con la acción normal
+    const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.open('https://www.instagram.com/revolucionotakuoficial/', '_blank');
+    } else {
+      window.open('https://www.instagram.com/direct/t/17845492661911069', '_blank');
+    }
+  }
 
   return (
     <div className="torneos-page dynamic-bg">
@@ -113,14 +133,7 @@ const Torneos = () => {
                   <p className="tournament-description">{tournament.description}</p>
                   <button
                     className="tournament-button"
-                    onClick={() => {
-                      const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                      if (isMobile) {
-                        window.open('https://www.instagram.com/revolucionotakuoficial/', '_blank');
-                      } else {
-                        window.open('https://www.instagram.com/direct/t/17845492661911069', '_blank');
-                      }
-                    }}
+                    onClick={() => handleTournamentAction(tournament)}
                   >
                     {tournament.status === 'Inscripciones Abiertas' ? 'Inscribirse' : 'Más Información'}
                   </button>
