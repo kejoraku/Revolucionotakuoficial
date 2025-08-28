@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './Carousel.css'
 
-const Carousel = ({ images, title, autoPlayInterval = 5000 }) => {
+const Carousel = ({ images, title, autoPlayInterval = 5000, titleClassName = '' }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const intervalRef = useRef(null)
 
@@ -50,7 +50,7 @@ const Carousel = ({ images, title, autoPlayInterval = 5000 }) => {
 
   return (
     <div className="carousel-container">
-      <h2 className="carousel-title">{title}</h2>
+      <h2 className={`carousel-title ${titleClassName}`}>{title}</h2>
       <div className="carousel">
         <button className="carousel-button prev" onClick={() => handleManualChange(goToPrevious)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

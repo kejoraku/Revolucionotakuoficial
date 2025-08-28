@@ -103,13 +103,14 @@ const LigaROO = () => {
         <div className="liga-floating-element fire-6"></div>
       </div>
 
-      <div className="hero-section" style={{marginTop: 0, paddingTop: 0}}>
-        <Carousel
-          images={championImages}
-          title="Nuestros Campeones"
-          autoPlayInterval={5000}
-        />
-      </div>
+             <div className="hero-section" style={{marginTop: 0, paddingTop: 0}}>
+         <Carousel
+           images={championImages}
+           title="Nuestros Campeones"
+           autoPlayInterval={5000}
+           titleClassName="liga-roo-title"
+         />
+       </div>
 
       <div className="content-section">
         <div className="ranking-content">
