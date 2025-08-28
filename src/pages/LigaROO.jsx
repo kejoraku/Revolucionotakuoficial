@@ -5,42 +5,42 @@ import './LigaROO.css'
 const LigaROO = () => {
   const [activeGame, setActiveGame] = useState('mk1')
 
-  // Imágenes para el carrusel de campeones
+  // Imágenes para el carrusel de campeones (1170x500)
   const championImages = [
     {
-      url: '/contenido/torneos/torneos_mortal_kombat_1.png',
+      url: '/champions/mk1_champion.jpg',
       title: 'Campeón Mortal Kombat 1',
-      description: 'El guerrero más letal del torneo'
+      description: 'El guerrero más letal del torneo - Sub-Zero Master'
     },
     {
-      url: '/contenido/torneos/torneos_fc_25.jpg',
+      url: '/champions/fc25_champion.jpg',
       title: 'Campeón FC 25',
-      description: 'El estratega del fútbol virtual'
+      description: 'El estratega del fútbol virtual - GoalMaster Pro'
     },
     {
-      url: '/contenido/torneos/torneos_tekken_8.png',
+      url: '/champions/tekken8_champion.jpg',
       title: 'Campeón Tekken 8',
-      description: 'El maestro de las artes marciales'
+      description: 'El maestro de las artes marciales - Iron Fist Legend'
     },
     {
-      url: '/contenido/torneos/torneos_street_fighter_6.jpg',
+      url: '/champions/sf6_champion.jpg',
       title: 'Campeón Street Fighter 6',
-      description: 'El luchador más rápido'
+      description: 'El luchador más rápido - Hadouken Master'
     },
     {
-      url: '/contenido/torneos/torneos_king_of_fighters_xv.jpg',
+      url: '/champions/kofxv_champion.jpg',
       title: 'Campeón The King of Fighters XV',
-      description: 'El rey de los combates'
+      description: 'El rey de los combates - Team Leader Elite'
     },
     {
-      url: '/contenido/inicio/inicio_gaming_y_anime.png',
+      url: '/champions/general_champion.jpg',
       title: 'Campeón General',
-      description: 'El mejor de todos los juegos'
+      description: 'El mejor de todos los juegos - Ultimate Champion'
     },
     {
-      url: '/contenido/eventos/eventos_especiales.jpg',
-      title: 'Campeón Especial',
-      description: 'El legendario de la Liga ROO'
+      url: '/champions/legendary_champion.jpg',
+      title: 'Campeón Legendario',
+      description: 'El legendario de la Liga ROO - Eternal Warrior'
     }
   ]
 
