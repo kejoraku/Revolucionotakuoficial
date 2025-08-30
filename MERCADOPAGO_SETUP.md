@@ -183,3 +183,5 @@ Para más información sobre la integración con MercadoPago:
 - [Documentación oficial de MercadoPago](https://www.mercadopago.com.ar/developers/es)
 - [SDK de Node.js](https://github.com/mercadopago/sdk-nodejs)
 - [API de Preferencias](https://www.mercadopago.com.ar/developers/es/docs/checkout-api/integrate-checkout/api/reference/preferences)
+
+

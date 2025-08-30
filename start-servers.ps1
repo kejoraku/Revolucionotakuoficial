@@ -27,3 +27,12 @@ Write-Host "Servidores iniciados correctamente!" -ForegroundColor Green
 Write-Host ""
 Write-Host "Presiona cualquier tecla para cerrar esta ventana..." -ForegroundColor Cyan
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+
+
+
+
+
+
+
+
+

@@ -64,3 +64,5 @@ EMAIL_PASS="tu-contraseña-de-aplicacion"
 ### Error: "Less secure app access"
 - Este error no debería aparecer con contraseñas de aplicación
 - Si aparece, verifica que estés usando una contraseña de aplicación válida
+
+

@@ -2,60 +2,60 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Carousel from '../components/Carousel'
 import './Torneos.css'
-import torneos_espacio_publicitario_1 from '../../contenido/torneos/torneos_espacio_publicitario_1.png';
-import torneos_espacio_publicitario_2 from '../../contenido/torneos/torneos_espacio_publicitario_2.jpg';
-import torneos_mortal_kombat_1 from '../../contenido/torneos/torneos_mortal_kombat_1.png';
-import torneos_fc_25 from '../../contenido/torneos/torneos_fc_25.jpg';
-import torneos_tekken_8 from '../../contenido/torneos/torneos_tekken_8.png';
-import torneos_street_fighter_6 from '../../contenido/torneos/torneos_street_fighter_6.jpg';
-import torneos_king_of_fighters_xv from '../../contenido/torneos/torneos_king_of_fighters_xv.jpg';
+import torneos_3 from '../../contenido/torneos/torneos_3.png';
+import torneos_6 from '../../contenido/torneos/torneos_6.jpg';
+import torneos_1 from '../../contenido/torneos/torneos_1.jpg';
+import torneos_2 from '../../contenido/torneos/torneos_2.jpg';
+import torneos_4 from '../../contenido/torneos/torneos_4.png';
+import torneos_5 from '../../contenido/torneos/torneos_5.jpg';
+import torneos_7 from '../../contenido/torneos/torneos_7.png';
 
 const Torneos = () => {
   const navigate = useNavigate()
   const tournamentImages = [
     {
-      url: torneos_mortal_kombat_1,
-      title: 'Mortal Kombat 1 Championship',
+      url: torneos_1,
+      title: 'Dragon Ball Z Budokai Tenkaichi III',
       description: 'El torneo más sangriento del año con premios de $30,000'
     },
     {
-      url: torneos_fc_25,
-      title: 'FIFA 2025 Tournament',
-      description: 'Compite en nuestro torneo de FIFA con equipos profesionales'
+      url: torneos_2,
+      title: 'Mortal Kombat 11',
+      description: 'Compite en nuestro torneo de Mortal Kombat 11 con rivales profesionales'
     },
     {
-      url: torneos_espacio_publicitario_1,
-      title: 'Espacio Publicitario',
+      url: torneos_3,
+      title: '¡Ofertas exclusiva de consolas Playstation!',
       description: '¡Participa en los torneos y gana premios exclusivos!'
     },
     {
-      url: torneos_tekken_8,
-      title: 'Tekken 8 Championship',
-      description: 'Torneo de Tekken 8 con los mejores jugadores de lucha'
+      url: torneos_4,
+      title: 'Pro Evolution Soccer 2018',
+      description: 'Torneo de PES 2018 con los mejores equipos de futbol'
     },
     {
-      url: torneos_street_fighter_6,
-      title: 'Street Fighter 6 Cup',
-      description: 'Torneo de Street Fighter 6 para todos los niveles'
+      url: torneos_5,
+      title: 'Just Dance',
+      description: 'Veni a bailar con Just Dance, para todos los niveles'
     },
     {
-      url: torneos_espacio_publicitario_2,
-      title: 'Espacio Publicitario 2',
+      url: torneos_6,
+      title: '¡Ofertas exclusiva de consolas Nintendo!',
       description: '¡No te pierdas los anuncios y novedades de los torneos!'
     },
     {
-      url: torneos_king_of_fighters_xv,
-      title: 'The King of Fighters XV',
-      description: 'Festival de The King of Fighters XV con cosplay y premios'
+      url: torneos_7,
+      title: 'Guitar Hero III Legends of Rock',
+      description: 'Subí al escenario y demostra tu habilidad con la guitarra'
     }
   ]
 
   const activeTournaments = [
-    { id: 1, title: 'Mortal Kombat 1 Championship', game: 'Mortal Kombat 1', date: '15-20 Marzo 2025', prize: '$30,000', participants: '64 jugadores', status: 'Inscripciones Abiertas', image: torneos_mortal_kombat_1, description: 'El torneo más sangriento del año con premios de $30,000 y la participación de jugadores profesionales de Mortal Kombat 1.' },
-    { id: 2, title: 'FIFA 2025 Tournament', game: 'FIFA 2025', date: '25-30 Marzo 2025', prize: '$25,000', participants: '32 equipos', status: 'Próximamente', image: torneos_fc_25, description: 'Compite en nuestro torneo de FIFA 2025 con equipos profesionales y premios increíbles.' },
-    { id: 3, title: 'Tekken 8 Championship', game: 'Tekken 8', date: '5-10 Abril 2025', prize: '$20,000', participants: '48 jugadores', status: 'Inscripciones Abiertas', image: torneos_tekken_8, description: 'Torneo de Tekken 8 con los mejores jugadores de lucha del mundo.' },
-    { id: 4, title: 'Street Fighter 6 Cup', game: 'Street Fighter 6', date: '12-15 Abril 2025', prize: '$18,000', participants: '64 jugadores', status: 'Próximamente', image: torneos_street_fighter_6, description: 'Torneo de Street Fighter 6 para todos los niveles de jugadores.' },
-    { id: 5, title: 'The King of Fighters XV', game: 'The King of Fighters XV', date: '20-25 Abril 2025', prize: '$15,000', participants: '32 jugadores', status: 'Inscripciones Abiertas', image: torneos_king_of_fighters_xv, description: 'Festival de The King of Fighters XV con cosplay y premios especiales.' }
+    { id: 1, title: 'Dragon Ball Z Budokai Tenkaichi III Championship', game: 'Dragon Ball Z Budokai Tenkaichi III', date: '13-09 Septiembre 2025', prize: '$30,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_1, description: 'El torneo más sangriento del año con premios de $30,000 y la participación de jugadores profesionales de Dragon Ball Z Budokai Tenkaichi III.' },
+    { id: 2, title: 'Mortal Kombat 11 Tournament', game: 'Mortal Kombat 11', date: '13-09 Septiembre 2025', prize: '$25,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_2, description: 'Compite en nuestro torneo de Mortal Kombat 11 con los luchadores mas experimentados y disfruta de premios increíbles.' },
+    { id: 3, title: 'PES 2018 Championship', game: 'PES 2018', date: '13-09 Septiembre 2025', prize: '$20,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_4, description: 'Torneo de Pro Evolution Soccer 2018 con los mejores equpos de futbol del mundo.' },
+    { id: 4, title: 'Just Dance', game: 'Just Dance', date: '13-09 Septiembre 2025', prize: '$18,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_5, description: 'Torneo de Just Dance para todos los niveles de jugadores.' },
+    { id: 5, title: 'Guitar Hero III Perfomance', game: 'Guitar Hero III Legends of Rock', date: '13-09 Septiembre 2025', prize: '$15,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_7, description: 'Show de Guitar Herro III con cosplay y premios especiales.' }
   ]
 
   const handleTournamentAction = (tournament) => {
