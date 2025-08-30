@@ -2,12 +2,13 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Carousel from '../components/Carousel'
 import './Torneos.css'
-import torneos_3 from '../../contenido/torneos/torneos_3.png';
-import torneos_6 from '../../contenido/torneos/torneos_6.jpg';
+
 import torneos_1 from '../../contenido/torneos/torneos_1.jpg';
 import torneos_2 from '../../contenido/torneos/torneos_2.jpg';
+import torneos_3 from '../../contenido/torneos/torneos_3.png';
 import torneos_4 from '../../contenido/torneos/torneos_4.png';
 import torneos_5 from '../../contenido/torneos/torneos_5.jpg';
+import torneos_6 from '../../contenido/torneos/torneos_6.jpg';
 import torneos_7 from '../../contenido/torneos/torneos_7.png';
 
 const Torneos = () => {
@@ -52,10 +53,10 @@ const Torneos = () => {
 
   const activeTournaments = [
     { id: 1, title: 'Dragon Ball Z Budokai Tenkaichi III Championship', game: 'Dragon Ball Z Budokai Tenkaichi III', date: '13-09 Septiembre 2025', prize: '$30,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_1, description: 'El torneo más sangriento del año con premios de $30,000 y la participación de jugadores profesionales de Dragon Ball Z Budokai Tenkaichi III.' },
-    { id: 2, title: 'Mortal Kombat 11 Tournament', game: 'Mortal Kombat 11', date: '13-09 Septiembre 2025', prize: '$25,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_2, description: 'Compite en nuestro torneo de Mortal Kombat 11 con los luchadores mas experimentados y disfruta de premios increíbles.' },
-    { id: 3, title: 'PES 2018 Championship', game: 'PES 2018', date: '13-09 Septiembre 2025', prize: '$20,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_4, description: 'Torneo de Pro Evolution Soccer 2018 con los mejores equpos de futbol del mundo.' },
-    { id: 4, title: 'Just Dance', game: 'Just Dance', date: '13-09 Septiembre 2025', prize: '$18,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_5, description: 'Torneo de Just Dance para todos los niveles de jugadores.' },
-    { id: 5, title: 'Guitar Hero III Perfomance', game: 'Guitar Hero III Legends of Rock', date: '13-09 Septiembre 2025', prize: '$15,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_7, description: 'Show de Guitar Herro III con cosplay y premios especiales.' }
+    { id: 2, title: 'Mortal Kombat 11 Tournament', game: 'Mortal Kombat 11', date: '13-09 Septiembre 2025', prize: '$30,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_2, description: 'Compite en nuestro torneo de Mortal Kombat 11 con los luchadores mas experimentados y disfruta de premios increíbles.' },
+    { id: 3, title: 'PES 2018 Championship', game: 'PES 2018', date: '13-09 Septiembre 2025', prize: '$30,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_4, description: 'Torneo de Pro Evolution Soccer 2018 con los mejores equpos de futbol del mundo.' },
+    { id: 4, title: 'Just Dance', game: 'Just Dance', date: '13-09 Septiembre 2025', prize: '$30,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_5, description: 'Torneo de Just Dance para todos los niveles de jugadores.' },
+    { id: 5, title: 'Guitar Hero III Perfomance', game: 'Guitar Hero III Legends of Rock', date: '13-09 Septiembre 2025', prize: '$30,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_7, description: 'Show de Guitar Herro III con cosplay y premios especiales.' }
   ]
 
   const handleTournamentAction = (tournament) => {

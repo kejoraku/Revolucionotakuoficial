@@ -2,51 +2,59 @@ import React, { useState } from 'react'
 import Carousel from '../components/Carousel'
 import './LigaROO.css'
 
+import liga_roo_1 from '../../contenido/liga_roo/liga_roo_1.jpg';
+import liga_roo_2 from '../../contenido/liga_roo/liga_roo_2.jpg';
+import liga_roo_3 from '../../contenido/liga_roo/liga_roo_3.png';
+import liga_roo_4 from '../../contenido/liga_roo/liga_roo_4.jpg';
+import liga_roo_5 from '../../contenido/liga_roo/liga_roo_5.png';
+import liga_roo_6 from '../../contenido/liga_roo/liga_roo_6.jpg';
+import liga_roo_7 from '../../contenido/liga_roo/liga_roo_7.png';
+
 const LigaROO = () => {
-  const [activeGame, setActiveGame] = useState('mk1')
+  const [activeGame, setActiveGame] = useState('dbz')
 
   // Imágenes para el carrusel de campeones (1170x500)
   const championImages = [
     {
-      url: '/champions/mk1_champion.jpg',
-      title: 'Campeón Mortal Kombat 1',
-      description: 'El guerrero más letal del torneo - Sub-Zero Master'
+      url: liga_roo_1,
+      title: 'Campeón Guerrero Z',
+      description: 'El guerrero más letal de la liga'
     },
     {
-      url: '/champions/fc25_champion.jpg',
-      title: 'Campeón FC 25',
-      description: 'El estratega del fútbol virtual - GoalMaster Pro'
+      url: liga_roo_2,
+      title: 'Campeón Asesino del Combate Mortal',
+      description: 'El estratega del Combate'
     },
     {
-      url: '/champions/tekken8_champion.jpg',
-      title: 'Campeón Tekken 8',
-      description: 'El maestro de las artes marciales - Iron Fist Legend'
+      url: liga_roo_3,
+      title: '¡Ofertas exclusiva de consolas Playstation!',
+      description: '¡Participa en los torneos y gana premios exclusivos!'
     },
     {
-      url: '/champions/sf6_champion.jpg',
-      title: 'Campeón Street Fighter 6',
-      description: 'El luchador más rápido - Hadouken Master'
+      url: liga_roo_4,
+      title: 'Campeón Just Dance',
+      description: '¡Los piés más rápidos de la fiesta!'
     },
     {
-      url: '/champions/kofxv_champion.jpg',
-      title: 'Campeón The King of Fighters XV',
-      description: 'El rey de los combates - Team Leader Elite'
+      url: liga_roo_5,
+      title: 'Guitar Herro III Legends of Rock',
+      description: '¡El rey de las notas!'
     },
     {
-      url: '/champions/general_champion.jpg',
-      title: 'Campeón General',
-      description: 'El mejor de todos los juegos - Ultimate Champion'
+      url: liga_roo_6,
+      title: '¡Ofertas exclusiva de consolas Nintendo!',
+      description: '¡No te pierdas los anuncios y novedades de los torneos!'
     },
     {
-      url: '/champions/legendary_champion.jpg',
-      title: 'Campeón Legendario',
-      description: 'El legendario de la Liga ROO - Eternal Warrior'
+      url: liga_roo_7,
+      title: 'Campeón Legendario del balón',
+      description: 'El legendario de la Liga ROO Pro Evolution Soccer 2018'
     }
   ]
 
   // Datos de ranking por juego (hasta 20 participantes)
   const rankings = {
-    mk1: [
+    dbz: [
       { position: 1, user: 'DragonSlayer', city: 'Buenos Aires', points: 2850 },
       { position: 2, user: 'NinjaWarrior', city: 'Córdoba', points: 2720 },
       { position: 3, user: 'ShadowKick', city: 'Rosario', points: 2650 },
@@ -68,7 +76,7 @@ const LigaROO = () => {
       { position: 19, user: 'Typhoon', city: 'Formosa', points: 1530 },
       { position: 20, user: 'Monsoon', city: 'Misiones', points: 1460 }
     ],
-    fc25: [
+    mk11: [
       { position: 1, user: 'GoalMaster', city: 'Buenos Aires', points: 3200 },
       { position: 2, user: 'StrikerPro', city: 'Córdoba', points: 3080 },
       { position: 3, user: 'MidfieldKing', city: 'Rosario', points: 2950 },
@@ -90,7 +98,7 @@ const LigaROO = () => {
       { position: 19, user: 'Enganche', city: 'Formosa', points: 1770 },
       { position: 20, user: 'Pivot', city: 'Misiones', points: 1700 }
     ],
-    tekken8: [
+    jd: [
       { position: 1, user: 'IronFist', city: 'Buenos Aires', points: 3100 },
       { position: 2, user: 'SteelKick', city: 'Córdoba', points: 2980 },
       { position: 3, user: 'ComboMaster', city: 'Rosario', points: 2850 },
@@ -112,7 +120,7 @@ const LigaROO = () => {
       { position: 19, user: 'MidCrush', city: 'Formosa', points: 1670 },
       { position: 20, user: 'ThrowBreak', city: 'Misiones', points: 1600 }
     ],
-    sf6: [
+    gh3: [
       { position: 1, user: 'HadoukenPro', city: 'Buenos Aires', points: 2950 },
       { position: 2, user: 'ShoryukenKing', city: 'Córdoba', points: 2830 },
       { position: 3, user: 'TatsumakiElite', city: 'Rosario', points: 2700 },
@@ -134,7 +142,7 @@ const LigaROO = () => {
       { position: 19, user: 'Burnout', city: 'Formosa', points: 1520 },
       { position: 20, user: 'Recovery', city: 'Misiones', points: 1450 }
     ],
-    kofxv: [
+    pes2018: [
       { position: 1, user: 'TeamLeader', city: 'Buenos Aires', points: 2800 },
       { position: 2, user: 'ComboChain', city: 'Córdoba', points: 2680 },
       { position: 3, user: 'MaxMode', city: 'Rosario', points: 2550 },
@@ -159,11 +167,11 @@ const LigaROO = () => {
   }
 
   const games = [
-    { id: 'mk1', name: 'Mortal Kombat 1', icon: '🥊' },
-    { id: 'fc25', name: 'FC 25', icon: '⚽' },
-    { id: 'tekken8', name: 'Tekken 8', icon: '👊' },
-    { id: 'sf6', name: 'Street Fighter 6', icon: '🔥' },
-    { id: 'kofxv', name: 'The King of Fighters XV', icon: '👑' }
+    { id: 'dbz', name: 'Dragon Ball Z BT - III', icon: '👊' },
+    { id: 'mk11', name: 'Mortal Kombat 11', icon: '🥊' },
+    { id: 'jd', name: 'Just Dance', icon: '🔥' },
+    { id: 'gh3', name: 'Guitar Hero III', icon: '👑' },
+    { id: 'pes2018', name: 'PES 2018', icon: '⚽' }
   ]
 
   return (
