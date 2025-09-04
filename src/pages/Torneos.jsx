@@ -59,7 +59,7 @@ const Torneos = () => {
     { id: 5, title: 'Guitar Hero III Perfomance', game: 'Guitar Hero III Legends of Rock', date: '13-09 Septiembre 2025', prize: '$30,000', participants: 'Sin límite', status: 'Inscripciones Abiertas', image: torneos_7, description: 'Show de Guitar Herro III con cosplay y premios especiales.' }
   ]
 
-  const handleTournamentAction = (tournament) => {
+  const handleTournamentAction = async (tournament) => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'
     
     if (tournament.status === 'Inscripciones Abiertas') {
@@ -71,26 +71,26 @@ const Torneos = () => {
       }
       
       // Si está logueado y las inscripciones están abiertas, redirigir a MercadoPago
-      const mercadopagoUrl = `https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=REVOLUCION_OTAKU_${tournament.id}`
-      
-      // Mostrar confirmación antes de redirigir
-      const confirmInscription = window.confirm(
-        `¿Estás seguro de que quieres inscribirte en "${tournament.title}"?\n\n` +
-        `Costo de inscripción: $3,000 ARS\n` +
-        `Serás redirigido a MercadoPago para completar el pago.`
-      )
-      
-      if (confirmInscription) {
-        // Abrir MercadoPago en una nueva pestaña
-        window.open(mercadopagoUrl, '_blank')
-        
-        // Mostrar mensaje de confirmación
-        alert(
-          '¡Inscripción iniciada!\n\n' +
-          'Has sido redirigido a MercadoPago para completar el pago de $3,000 ARS.\n' +
-          'Una vez completado el pago, recibirás una confirmación por email.'
-        )
+      try {
+        const resp = await fetch(`http://localhost:3000/api/tournaments/${tournament.id}/payment-url`, {
+          method: 'GET'
+        })
+        const data = await resp.json()
+        if (resp.ok && data.paymentUrl) {
+          window.open(data.paymentUrl, '_blank')
+        } else {
+          alert('No se pudo iniciar el pago. Intenta nuevamente más tarde.')
+        }
+      } catch (e) {
+        alert('Error conectando con el servicio de pagos.')
       }
+      
+      // Mostrar mensaje de confirmación
+      alert(
+        '¡Inscripción iniciada!\n\n' +
+        'Serás redirigido a MercadoPago para completar el pago de $3,000 ARS.\n' +
+        'Una vez completado el pago, recibirás una confirmación por email.'
+      )
     } else {
       // Para torneos que no tienen inscripciones abiertas, mostrar información
       const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);

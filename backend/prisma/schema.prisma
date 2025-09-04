@@ -17,6 +17,7 @@ model User {
   password    String
   tag         String?  @unique
   phone       String?
+  ciudad      String?
   receiveNews Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

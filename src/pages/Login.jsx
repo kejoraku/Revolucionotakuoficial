@@ -11,6 +11,7 @@ const Login = () => {
     tag: '',
     email: '',
     phone: '',
+    ciudad: '',
     receiveNews: false
   })
   const [loginData, setLoginData] = useState({
@@ -44,8 +45,8 @@ const Login = () => {
 
   // Validar captcha
   const validateCaptcha = () => {
-    if (captchaInput.toUpperCase() !== captchaValue.toUpperCase()) {
-      setCaptchaError('El código captcha es incorrecto')
+    if (captchaInput !== captchaValue) {
+      setCaptchaError('El código captcha es incorrecto (distingue mayúsculas y minúsculas)')
       return false
     }
     setCaptchaError('')
@@ -143,8 +144,10 @@ const Login = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault()
+    setActiveTab('register')
     setIsLoading(true)
     setMessage('')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
 
     // Validar captcha
     if (!validateCaptcha()) {
@@ -153,9 +156,10 @@ const Login = () => {
     }
 
     // Validar campos obligatorios
-    if (!formData.username || !formData.password || !formData.email || !formData.tag) {
+    if (!formData.username || !formData.password || !formData.email || !formData.tag || !formData.ciudad) {
       setMessage('Por favor completa todos los campos obligatorios')
       setIsLoading(false)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
       return
     }
 
@@ -178,17 +182,23 @@ const Login = () => {
           tag: '',
           email: '',
           phone: '',
+          ciudad: '',
           receiveNews: false
         })
         setFieldErrors({})
         setCaptchaInput('')
         setCaptchaError('')
-        setActiveTab('login')
+        setActiveTab('register')
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       } else {
+        setActiveTab('register')
         setMessage(data.message || 'Error en el registro')
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     } catch (error) {
+      setActiveTab('register')
       setMessage('Error de conexión. Intenta nuevamente.')
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
     setIsLoading(false)
@@ -382,6 +392,18 @@ const Login = () => {
               <small className="field-hint">Solo números</small>
             </div>
 
+            <div className="form-group">
+              <label htmlFor="ciudad">Ciudad: *</label>
+              <input
+                type="text"
+                id="ciudad"
+                name="ciudad"
+                value={formData.ciudad}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+
             <div className="form-group captcha-group">
               <label htmlFor="captcha">Código de seguridad: *</label>
               <div className="captcha-container">
@@ -402,9 +424,10 @@ const Login = () => {
                   name="captcha"
                   value={captchaInput}
                   onChange={(e) => setCaptchaInput(e.target.value)}
-                  placeholder="Ingresa el código"
+                  placeholder="Distingue entre mayúsculas y minúsculas"
                   required
                   className={captchaError ? 'error' : ''}
+                  style={{ fontFamily: 'monospace', textTransform: 'none' }}
                 />
               </div>
               {captchaError && (

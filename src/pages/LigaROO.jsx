@@ -9,6 +9,7 @@ import liga_roo_4 from '../../contenido/liga_roo/liga_roo_4.jpg';
 import liga_roo_5 from '../../contenido/liga_roo/liga_roo_5.png';
 import liga_roo_6 from '../../contenido/liga_roo/liga_roo_6.jpg';
 import liga_roo_7 from '../../contenido/liga_roo/liga_roo_7.png';
+import whatsappBanner from '../../contenido/inicio/comunidad.jpg'
 
 const LigaROO = () => {
   const [activeGame, setActiveGame] = useState('dbz')
@@ -194,6 +195,15 @@ const LigaROO = () => {
            titleClassName="liga-roo-title"
          />
        </div>
+      {/* Banner de WhatsApp */}
+      <div className="whatsapp-banner-container" style={{display: 'flex', justifyContent: 'center', margin: '2rem 0'}}>
+        <a href="https://chat.whatsapp.com/ly5k2WiLmQtKs2ekOo8Qmn?mode=ems_copy_h_t" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'none'}}>
+          <img src={whatsappBanner} alt="Únete a nuestra comunidad gaming en WhatsApp" style={{maxWidth: '100%', borderRadius: '18px', boxShadow: '0 4px 24px rgba(84,188,213,0.15)', border: '3px solid #54BCD5'}} />
+          <div style={{textAlign: 'center', marginTop: '0.5rem', fontWeight: 700, color: '#25D366', fontSize: '1.2rem'}}>
+            <span style={{fontSize: '1.5rem', verticalAlign: 'middle'}}>🟢</span> Únete a nuestra comunidad gaming en WhatsApp
+          </div>
+        </a>
+      </div>
 
       <div className="content-section">
         <div className="ranking-content">

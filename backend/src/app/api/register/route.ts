@@ -6,7 +6,7 @@ import { sendRegistrationConfirmation } from '@/lib/emailService'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { username, password, email, tag, phone, receiveNews } = body
+    const { username, password, email, tag, phone, receiveNews, ciudad } = body
 
     // Validar campos obligatorios
     if (!username || !password || !email || !tag) {
@@ -107,6 +107,7 @@ export async function POST(request: NextRequest) {
         password: hashedPassword,
         tag,
         phone: phone || null,
+        ciudad: ciudad || null,
         receiveNews: receiveNews || false
       }
     })

@@ -6,6 +6,7 @@ import Eventos from './pages/Eventos'
 import Torneos from './pages/Torneos'
 import LigaROO from './pages/LigaROO'
 import Login from './pages/Login'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           </Routes>
         </main>
       </div>
+      <Footer />
     </Router>
   )
 }
