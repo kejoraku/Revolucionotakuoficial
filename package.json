@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "vercel-build": "npm ci && npm run build"
+    "vercel-build": "npm ci && npx vite build"
   },
   "dependencies": {
     "react": "18.2.0",
